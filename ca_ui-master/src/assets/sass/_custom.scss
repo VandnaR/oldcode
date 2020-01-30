@@ -1,0 +1,317 @@
+/* ---Mixins--- */
+
+@mixin enter-somethin($text, $placeholder) {
+  input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: $text;
+  }
+
+  input::-webkit-input-placeholder {
+    color: $placeholder;
+    opacity: 1;
+  }
+
+  input:-moz-placeholder {
+    color: $placeholder;
+    opacity: 1;
+  }
+
+  input::-moz-placeholder {
+    color: $placeholder;
+    opacity: 1;
+  }
+
+  input:-ms-input-placeholder {
+    color: $placeholder;
+    opacity: 1;
+  }
+
+  input:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  input:focus:-moz-placeholder {
+    color: transparent;
+  }
+
+  input:focus::-moz-placeholder {
+    color: transparent;
+  }
+
+  input:focus:-ms-input-placeholder {
+    color: transparent;
+  }
+}
+
+/* ---Classes--- */
+
+.clear,
+.clear:before,
+.clear:after {
+  clear: both;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.flex-x {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-y {
+  display: flex;
+  align-items: center;
+}
+
+.flex-both {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-edge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+// Tooltip radar chart
+.group-tooltip {
+  display: block;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 1px;
+
+  .line-color {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    margin-bottom: 7px;
+  }
+
+  &:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 8px 0 8px;
+    border-color: #fff transparent transparent transparent;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    margin-left: -12px;
+    z-index: 2;
+  }
+
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: #000 transparent transparent transparent;
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 2px);
+    margin-left: -12px;
+    opacity: 0.2;
+    z-index: 1;
+  }
+
+  .name {
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    padding-left: 8px;
+  }
+
+  .value {
+    display: block;
+    font-size: 15px;
+    color: #000;
+    padding-left: 8px;
+  }
+
+  &.tooltip-radar-chart {
+    width: 95px;
+    height: auto;
+    padding: 3px;
+  }
+
+  &.tooltip-group-bar-chart {
+    width: 130px;
+    padding: 17px 10px 18px 10px;
+    .name {
+      display: block;
+      font-size: 15px;
+      font-weight: bold;
+      color: #000000;
+      margin-bottom: 12px;
+      padding: 0;
+    }
+
+    ul {
+      li {
+        width: 100%;
+        height: 24px;
+        position: relative;
+
+        .circle-color {
+          display: block;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          position: absolute;
+          top: calc(50% - 4px);
+          left: 0;
+
+          &.dark-blue {
+            background-color: #0e3570;
+          }
+
+          &.light-blue {
+            background-color: #2977aa;
+          }
+
+          &.blue {
+            background-color: #00a2e0;
+          }
+        }
+
+        .text {
+          display: block;
+          font-size: 11px;
+          color: #818181;
+          line-height: 24px;
+          padding-left: 16px;
+          float: left;
+        }
+
+        .value {
+          display: block;
+          font-size: 15px;
+          color: #000000;
+          line-height: 24px;
+          float: right;
+        }
+      }
+    }
+  }
+}
+
+// box chart
+.box-chart {
+  &.box-donut-chart {
+    display: block;
+    width: 135px;
+    height: 135px;
+    margin: 0 auto;
+  }
+}
+
+.chart-here {
+  &.active {
+    padding-top: 43px;
+  }
+}
+
+.wrapp-all {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+// animation place holder
+.place-holder {
+  .cls-anim {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: 1;
+    animation: phAnimation 1s linear infinite;
+    background: linear-gradient(
+        to right,
+        rgba(#fff, 0) 46%,
+        rgba(#fff, 0.35) 50%,
+        rgba(#fff, 0) 54%
+      )
+      50% 50%;
+  }
+}
+
+.place-holder-title {
+  height: 20px;
+  width: 107px;
+  font-size: 0;
+  background: #f2f2f2;
+  top: 19px;
+  left: 17px;
+  overflow: hidden;
+  position: relative;
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    animation: phAnimation 0.8s linear infinite;
+    background: linear-gradient(to right, rgba(#fff, 1) 0%, rgba(#fff, 0) 35%)
+      50% 50%;
+  }
+}
+.item-place-holder {
+  background: #f6f6f6;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    animation: phAnimation 0.8s linear infinite;
+    background: linear-gradient(to right, rgba(#fff, 1) 0%, rgba(#fff, 0) 35%)
+      50% 50%;
+  }
+}
+
+@keyframes phAnimation {
+  0% {
+    transform: translate3d(0%, 0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(120%, 0, 0);
+    opacity: 0;
+  }
+}

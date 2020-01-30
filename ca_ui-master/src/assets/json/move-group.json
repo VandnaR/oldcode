@@ -1,0 +1,53 @@
+[
+  {
+    "name": "MOVE GR. 1",
+    "data": [
+      {
+        "name": "LOB 1",
+        "value": 15
+      },
+      {
+        "name": "LOB 2",
+        "value": 12.5
+      },
+      {
+        "name": "LOB 3",
+        "value": 9
+      }
+    ]
+  },
+  {
+    "name": "MOVE GR. 2",
+    "data": [
+      {
+        "name": "LOB 1",
+        "value": 13
+      },
+      {
+        "name": "LOB 2",
+        "value": 9
+      },
+      {
+        "name": "LOB 3",
+        "value": 12
+      }
+    ]
+  },
+  {
+    "name": "MOVE GR. 3",
+    "data": [
+      {
+        "name": "LOB 1",
+        "value": 2
+      },
+      {
+        "name": "LOB 2",
+        "value": 5
+      },
+      {
+        "name": "LOB 3",
+        "value": 7
+      }
+    ]
+  }
+]

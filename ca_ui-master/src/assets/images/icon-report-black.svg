@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>baseline-assessment-24px</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="A-Migration-Engineer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="A1_Migration-Engineer-V1" transform="translate(-1244.000000, -33.000000)">
+            <g id="Group-13" transform="translate(1241.000000, 30.000000)">
+                <g id="baseline-assessment-24px">
+                    <path d="M20.5833333,3.25 L5.41666667,3.25 C4.225,3.25 3.25,4.225 3.25,5.41666667 L3.25,20.5833333 C3.25,21.775 4.225,22.75 5.41666667,22.75 L20.5833333,22.75 C21.775,22.75 22.75,21.775 22.75,20.5833333 L22.75,5.41666667 C22.75,4.225 21.775,3.25 20.5833333,3.25 Z M9.75,18.4166667 L7.58333333,18.4166667 L7.58333333,10.8333333 L9.75,10.8333333 L9.75,18.4166667 Z M14.0833333,18.4166667 L11.9166667,18.4166667 L11.9166667,7.58333333 L14.0833333,7.58333333 L14.0833333,18.4166667 Z M18.4166667,18.4166667 L16.25,18.4166667 L16.25,14.0833333 L18.4166667,14.0833333 L18.4166667,18.4166667 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                    <polygon id="Shape" points="0 0 26 0 26 26 0 26"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,11 @@
+{
+    "url": "http://containeraccelerator.wiprocms.com:8090/", 
+    "serverUrl": "http://containeraccelerator.wiprocms.com:8090/",
+    "clusterUrl": "https://156.171.192.35.bc.googleusercontent.com/",
+    "login_url":"http://containeraccelerator.wiprocms.com:18080/AuthApp",
+    "frontEndUrl":"http://containeraccelerator.wiprocms.com:18080/",
+    "fileUploadUrl": "http://containeraccelerator.wiprocms.com:8091/",
+    "createImagesUrl":"http://containeraccelerator.wiprocms.com:8093/",
+    "clientAppId": "DMApp01",
+    "clientAppSecret": "dm123456"
+}

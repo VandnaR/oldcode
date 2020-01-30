@@ -1,0 +1,400 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Marketplace'" [icon]="'fa-bar-chart-o'"></app-page-header>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active text-dark" id="search-tab" (click)="clearTagRow()" data-toggle="tab" href="#search" role="tab" aria-controls="search" aria-selected="true" >Search Docker Image</a>
+    </li>
+    <li class="nav-item" >
+        <a class="nav-link text-dark" id="cloneRepo-tab" (click)="refreshImageData()" data-toggle="tab" href="#cloneRepo" role="tab" aria-controls="create" aria-selected="false" >Get Base Image</a>
+      </li>
+    <!-- <li class="nav-item" *ngIf="adminhas"> -->
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="hardened-tab" (click)="refreshImageData()" data-toggle="tab" href="#hardened" role="tab" aria-controls="create" aria-selected="false" >Harden Base Image</a>
+      </li>
+  </ul>
+  <!-- <div class="wrapperHub">
+    <a class="dockerHub" target="_blank" href="https://hub.docker.com/search/?type=image">Docker Hub</a>
+  </div> -->
+
+  <!-- Search docker Image -->
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
+      <div class="conatiner" style="margin-bottom: 15px;">
+        <div class="col-sm-3">&nbsp;</div>
+        <div class="col-sm-6" style="position:relative;">
+           <i class="fa fa-search searchIcon"></i>
+           <input type="text" class="" #myInputVal id="myInput" [(ngModel)]="query" placeholder="Search for Images (e.g. ubuntu)" title="Type Items">
+       </div>
+       <div class="col-sm-3">
+        <button class="btn btn-default btn-sm" data-toggle="modal"     
+        data-target=".bs-example-modal-request"  id="createClusterBtn">Request</button>
+        </div>
+      </div>
+  <!-- <h5 class="containerText">Containers</h5> -->
+  <div class="conatiner">
+ 
+  <!-- Filter start -->
+  <div class="filters" id="checkFilter">
+    <h6><span>Filters </span> <span *ngIf="topFilterFlag">({{topFilter.length}})
+       <a class="marginalSpace" href="javascript:void(0);" (click)="clearAll($event.target)">Clear All</a>
+      </span>
+    </h6>
+
+    <!-- clear All filter -->
+
+    <ul class="filterName" *ngFor = "let filter of Filters">
+      <h5>{{filter.name}}</h5>
+      <li *ngFor = "let filt of filter.properties">
+          <label class="container">{{filt}}
+              <input type="checkbox" (click)="fitlerArr($event.target, filt)" [checked]="filt?.IsIncluded" value="{{filt}}">
+              <span class="checkmark"></span>
+            </label>
+      </li>
+    </ul>
+  
+  </div>
+
+  <!-- Image container start -->
+  <div class="imgContainer">
+    
+    <h6>Available Images</h6>
+
+    <!-- Applied filter container start -->
+    <ul class="applyFilter">
+      <li *ngFor = "let opt of topFilter;let i = index">
+          <a href="javascript:void(0)" (click)="removeFilter(opt)">X</a>
+          {{opt}}
+      </li>
+    </ul>
+    <div *ngIf="dockerDTO.length !== 0; else errorShown">
+      <ul class="imageContainer">
+        <li *ngFor = "let image of dockerDTO | search:'imageName':query">
+                <img src="{{image.iconURL}}"/>
+            <div class="rightContent">
+                <div style="overflow: hidden">
+                        <h6 style="float:left">{{image.imageName}}</h6>
+                        <div style="float: right; line-height: 14px;" class="rightPanel col-sm-3">
+                               <!-- <div style="float: left; margin-right: 10px" class="">
+                                    <label for="getDockerImage" style="font-size: 14px; color: #385480">Get Docker Image </label> 
+                                </div>
+                                <div class="">
+                                    <input type="radio" style="width: 16px; height: 16px; margin-top: 1px" name="getDockerImage" (click)="getDockerImage(image)">
+                                    <div class="fieldsDesc"></div>
+                                </div>-->
+                        </div>
+                </div>
+                
+
+                <p>{{image.imageDescription}}</p>
+                <div class="imageTag row">
+                <div class="leftPanel col-sm-8">
+                    <span *ngIf="image.imageOs">{{image.imageOS}}</span>
+                    <span *ngIf="image.imageType">{{image.imageType}}</span>
+                    <!-- <span>{{image.imageVersion}}</span> -->
+                    <span *ngIf="image.imageCategory">{{image.imageCategory}}</span>
+                    <span *ngIf="image.imageArchitecture">{{image.imageArchitecture}}</span>
+                </div>
+                
+                <!-- <div class="rightPanel col-sm-1">
+                    <i class="fa fa-download downloadIcon"></i>
+                </div> -->
+                </div>
+                
+                
+            </div>
+            <div [hidden]="!hideElem[image.imageId]" class="getImageClass">
+
+                <form #taggedForm="ngForm">
+                    <div style="margin-top: 15px;">
+                            <div class="">
+                                    <div class="row">
+                                    <div class="col-sm-2" style="text-align: right; line-height: 31px;">
+                                            <label for="">Tag Name: </label> 
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="tagName" class="form-control mb-2 mr-sm-2" id="tagName" #tagName>
+                                        <div class="fieldsDesc"></div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                            <button style="margin-bottom: 10px; float:right; background: #385480; color: #fff;"  [disabled]="!taggedForm.form.valid" class="btn btn-default btn-sm" data-toggle="modal"     
+                                            data-target=".bs-example-modal-cluster"  id="createClusterBtn" (click)="getDockerImageName(image,tagName)">Get Docker Image</button>
+                                    </div>
+                                    <div class="col-sm-4" *ngIf="showLoad;">                            
+                                        <i class="fa fa-spinner fa-spin" style="font-size:20px"></i> &nbsp; Fetching.....                         
+                                    </div> 
+                                    <div [ngClass]="(toggleError) ? 'errorCreateDocker':'greenError'" *ngIf="showResponseFlag">{{createResponse1}}</div>
+                                </div>
+                                </div>
+                    </div>
+                    
+                </form>
+            </div> 
+        </li>
+
+      </ul>
+  </div>
+  
+
+  <ng-template #errorShown><div class="notFound">Ohh.... Result Not Found</div></ng-template>
+  </div>
+</div>
+
+  </div>
+
+<!-- Clone MP Images starts -->
+
+
+<div class="tab-pane fade" id="cloneRepo" role="tabpanel" aria-labelledby="cloneRepo-tab">
+        <div class="row">
+                <div class="col-sm-4">Base Image</div>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="image" name="image" #baseImage>
+                </div>       
+        </div>
+        <div class="row">
+                <div class="col-sm-4">Source Git</div>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="sourceUrl" name="sourceUrl" #sourceGit>
+                </div>       
+        </div>
+        <div class="row">
+                <div class="col-sm-4">Local Git</div>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="destinationUrl" name="destinationUrl" #destinationUrl>
+                </div>       
+        </div>
+        <div class="row">
+                <!-- <div class="col-sm-4">Username</div> -->
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control mb-2 mr-sm-2" id="username" name="username" #username>
+                </div>       
+        </div>
+        <div class="row">
+                <!-- <div class="col-sm-4">Password</div> -->
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control mb-2 mr-sm-2" id="password" name="password" #password>
+                </div>       
+        </div>
+        <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8">
+                        <button class="btn btn-default btn-sm" id="cloneRepoBtn" (click)="cloneRepo(baseImage,sourceGit,destinationUrl,username,password)">Get</button>
+                </div>       
+        </div>
+       
+         
+</div> 
+<!-- Clone MP Images ends -->
+<!-- Create docker Image start -->
+
+
+  <div class="tab-pane fade" id="hardened" role="tabpanel" aria-labelledby="hardened-tab">
+
+    <!-- new UI for harden -->
+
+    <div class="row">
+        <div class="col-sm-4">Image Name</div>
+        <div class="col-sm-8">
+            <input type="text" class="form-control mb-2 mr-sm-2" id="sourceUrl" name="sourceUrl" #imageNames>
+        </div>       
+    </div>
+    <div class="row">
+        <div class="col-sm-4">Image Tag</div>
+        <div class="col-sm-8">
+            <input type="text" class="form-control mb-2 mr-sm-2" id="sourceUrl" name="sourceUrl" #imageTag>
+        </div>       
+    </div>
+    <div class="row">
+            <div class="col-sm-4">Local Git</div>
+            <div class="col-sm-8">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="image" name="image" #localGit>
+            </div>       
+    </div>
+    <div class="row">
+            <div class="col-sm-4">Dockerfile Path</div>
+            <div class="col-sm-8">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="sourceUrl" name="sourceUrl" #dockerFilePath>
+            </div>       
+    </div>    
+    <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-8">
+                    <button class="btn btn-default btn-sm" id="cloneRepoBtn" (click)="hardenImage(imageNames,imageTag,localGit,dockerFilePath)">Harden</button>
+            </div>       
+    </div>
+      <!-- <div>
+           <div [ngClass]="(toggleError) ? 'errorCreateDocker':'greenError'" *ngIf="showBuildFlag">{{buildMessage}}</div>
+        <form #createImageForm="ngForm">
+            <div class="card-body">                
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-4">
+                              <label for="imgType">Images</label> 
+                        </div>
+                        <div class="col-sm-6">
+                          <select class="form-control" required name="imgTypes" #images (change)="getImageName($event.target.value,dockerFile)">
+                                <option value="">Select a base image</option> 
+                                <ng-container *ngFor="let val of dockerData">
+                                    <option value="{{val.dockerImagesDTO.imageName}}" *ngIf='val.dockerImagesDTO.imagePullStatus === "SUCCESS"'> 
+                                        {{val.dockerImagesDTO.imageName}}
+                                    </option> 
+                                </ng-container>
+                                                            
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-4">
+                            <label for="">Image Tag</label> 
+                      </div>
+                      <div class="col-sm-6">
+                            <select class="form-control" required name="imgTags" #imageTags>
+                                    <option value="">Select Tags</option>
+                                        <ng-container *ngFor="let tag of refinedTags">
+                                                <option value="{{tag}}" *ngIf='tag && tag.length !== 0'> 
+                                                    {{tag}}
+                                         </option> 
+                                        </ng-container>              
+                                </select>                        
+                          <div class="fieldsDesc"></div>
+                      </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-4">
+                            <label for="imageOS">Docker Editor </label> 
+                      </div>
+                      <div class="col-sm-6">
+                          <textarea name="myTextArea" id="myTextArea" rows="5" cols="80" #dockerFile> 
+                                   {{nameOfImage}}                                                
+                          </textarea>
+                          <div class="fieldsDesc"></div>
+                      </div>
+                  </div>
+                </div>                         
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-6">
+                    <button style="margin-bottom: 10px; float:left" [disabled]="!createImageForm.valid" class="btn btn-default btn-sm" data-toggle="modal"     
+                  data-target=".bs-example-modal-cluster"  id="createClusterBtn" (click)="buildDockerImage(images,imageTags,dockerFile)">Build Docker Image</button>
+                  <div style="padding-left:15px; float: left" *ngIf="showLoad;">                            
+                        <i class="fa fa-spinner fa-spin" style="font-size:20px"></i> &nbsp; Build in progress.....                         
+                    </div> 
+                </div>
+                  </div>
+                  <div class="row" style="margin:10px 0px 10px 0px">
+                        <div class="col-sm-3">
+                          
+                        </div>          
+                        <div class="col-sm-4" *ngIf="analysisCompleted"> 
+                          <a [routerLink]="['/blank-page']">
+                            Click here to see vulnerabilities report <i class="fa fa-external-link"></i>
+                          </a>
+                             
+                        </div>        
+                </div>
+                  <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-6">
+                            {{message}}                    
+                  </div>
+                  </div>
+                  </div>
+            </div>
+        </form>
+  
+      </div> -->
+      <!-- <div>
+        <button style="margin-bottom: 10px;"  class="btn btn-default btn-sm float-left" data-toggle="modal"     
+      data-target=".bs-example-modal-request"  id="createClusterBtn">Custom Image Request</button>
+      </div> -->
+    </div>   
+    <!-- request custom image code starts -->
+    <div class="modal fade bs-example-modal-request" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        
+                  <div class="modal-dialog modal-lg modal-dialog-centered">
+                    
+                    <!-- Modal Content: begins -->
+                    <div class="modal-content">
+                      
+                      <!-- Modal Header -->
+                      <div class="modal-header text-info">
+                        <h4>Request</h4>
+                      </div>
+                    
+                      <!-- Modal Body -->  
+                      <div class="modal-body">
+                        
+                            <form #requestform="ngForm">
+                            <div class="row">
+                                 <div class="col-sm-6">Image name</div>
+                                 <div class="col-sm-6">
+                                     <input type="text" class="form-control mb-2 mr-sm-2" id="image" name="image" #imageName>
+                                 </div>  
+                                 <div class="col-sm-6">Version</div>
+                                 <div class="col-sm-6">
+                                       <input class="form-control mb-2 mr-sm-2" id="details" name = "details" #tag>                                        
+                                 </div>     
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">Request description</div>
+                                <div class="col-sm-6">
+                                    <input type="text"class="form-control mb-2 mr-sm-2" id="request" name="request" #description>
+                                </div>                                                                                                 
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">OS</div>
+                                <div class="col-sm-6">
+                                    <input type="text"class="form-control mb-2 mr-sm-2" id="os" name="os" #os>
+                                </div>                                                                                                
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">Hardware/Architecture</div>
+                                <div class="col-sm-6">
+                                    <input type="text"class="form-control mb-2 mr-sm-2" id="hardware" name="hardware" #hardware>
+                                </div>                                                                                                  
+                            </div>
+                            <!-- <div class="row">
+                                    <div class="col-sm-6">Email ID</div>
+                                    <div class="col-sm-6">
+                                        <input type="text"class="form-control mb-2 mr-sm-2" id="request" name="request" #email>
+                                    </div>
+        
+                            </div> -->
+                            </form>
+                                                                   
+                        
+                      </div>
+                      <!-- Modal Footer -->
+                        <div class="modal-footer">                            
+                        
+                        <button 
+                        type="button" class="btn btn-success" data-dismiss="modal" (click)="onCustomizionRequest(imageName,tag,description,os,hardware)">Submit</button>
+                        <button 
+                        type="button" class="btn btn-primary" data-dismiss="modal" >Cancel</button>
+                        
+                    </div>
+                    
+                    
+                    <!-- Modal Content: ends -->
+                     
+                     
+                    
+                    </div>
+                   
+                    
+                  </div>
+                  
+                </div>
+        <!-- dhrati code ends -->
+    </div>
+
+</div>    

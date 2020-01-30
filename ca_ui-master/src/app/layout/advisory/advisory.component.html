@@ -1,0 +1,265 @@
+<div [@routerTransition]>
+
+  <app-page-header [heading]="'Application Assessment/Advisory'" [icon]="'fa-bar-chart-o'"></app-page-header>
+
+  <div *ngIf="selectedValue == 'selectedtrue'">
+    <div class="tab-content" id="myTabContent" class="disabled">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+        <li class="nav-item">
+          <a class="nav-link active text-dark" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Containerization Advisory</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Platform/Cluster Advisory</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" id="factor-tab" data-toggle="tab" href="#factor" role="tab" aria-controls="factor" aria-selected="true">12 Factor Compliance</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Compatibility Advisory starts -->
+
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+      <!--*ngIf="mapByCategory.size!=0"-->
+      <br>
+      <b *ngIf="alertMessage.length==0">Application Name: {{appName}}</b>
+    </div>
+    <br>{{msg}}
+  </div>
+  <div *ngIf="selectedValue == 'selectedfalse'">
+
+    <div class="tab-content" id="myTabContent">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active text-dark" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Containerization Advisory</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Platform/Cluster Advisory</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" id="factor-tab" data-toggle="tab" href="#factor" role="tab" aria-controls="factor" aria-selected="true">12 Factor Compliance</a>
+        </li>
+        <!--<li class="disabled text-dark" style="margin-left:300px;font-size: 36px;">
+        <a href="http://localhost:4200/assessment" class="text-dark">
+          <i class=""> < </i>
+        </a>
+    </li>
+    <li class="waves-effect text-dark" style="margin-left:10px;font-size:36px;">
+      <a href="http://localhost:4200/configuration" class="text-dark">
+        <i class="">></i>
+      </a>
+    </li>-->
+      </ul>
+
+      <!-- Compatibility Advisory starts -->
+
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+        <!--*ngIf="mapByCategory.size!=0"-->
+        <br>
+        <b *ngIf="alertMessage.length==0">Application Name: {{appName}} | Average Score: {{avgScore}}%</b>
+        <span *ngIf="alertMessage.length!=0"> {{alertMessage}}</span>
+        <br>
+        <br>
+        <!--dynamic code starts-->
+        <div class="row" *ngIf="mapByCategory.size!=0">
+          <div class="col-sm-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Score</th>
+                  <th>Advisory</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let cName of getCategory(); let i=index;">
+                <tr>
+                  <td>{{cName.categoryName}}</td>
+                  <td>
+                    <span *ngIf="mapByScore.get(cName.categoryName) > 0">{{mapByScore.get(cName.categoryName) | number : '1.2-2' }}% </span>
+                  </td>
+                  <td>
+                    <ul>
+                      <li *ngFor="let val of mapByCategory.get(cName.categoryName)">{{val.advisoryText}}</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--dynamic code ends-->
+
+      </div>
+      <!-- Compatibility Advisory ends -->
+
+      <!-- Platform/cluster Advisory starts -->
+
+      <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <br>
+        <b>Average Score: {{avgScore}}%</b>
+        <div class="row">
+          <div class="col-sm-12" style="margin-left: 18px;">
+            <br>
+
+            <div class="mrgn" *ngFor="let question of questions">{{question.question}}
+              <div class="col-sm-4">
+                <select class="form-control" id="ddl_applications" name="ddl_applications" (change)="onPlatformChange($event.target.value)">
+                  <option value="0">Select an option</option>
+                  <!--<option>< New ></option>-->
+                  <ng-container *ngFor="let answers of answerOptions">
+                    <option *ngIf="answers.status === 'A'" [value]="answers.answerOptionsId">{{answers.answerText}}</option>
+                  </ng-container>
+                  <!-- <option> <{{"New"}}> </option>      -->
+                  <!--<option> Azure Container Service </option>                                                     
+                                    <option> Red Hat OpenShift </option>  
+                                    <option> Amazon ECS</option>  
+                                    <option> Google Container Engine</option>
+                                    <option> Docker Enterprise Edition</option>-->
+
+                </select>
+              </div>
+            </div>
+            <ul style="padding-left:45;margin-top:10px;">
+
+
+
+              <!-- <li class="mrgn">Most of the container platforms including Google Kubernetes Engine support flavors of HTML 5/CSS 3 and above.</li>
+                  <li class="mrgn">
+                     Google Kubernetes services generally provide container images for PHP versions starting 5.6x on Debain, so support for versions <=5.5x may not be available. For more details please visit 
+                    <a href="https://console.cloud.google.com/marketplace/browse?q=containerimages" target="_blank">https://console.cloud.google.com/marketplace/browse?q=containerimages
+                     </a>
+                  </li>
+                  <li class="mrgn">
+                    Google Kubernetes Engine generally provides support for Tomcat versions 8 and beyond on Debian so for versions between Tomcat 6 & 7 an upgrade may be required. For more details please visit 
+                    <a href="https://console.cloud.google.com/marketplace/details/click-to-deploy-images/tomcat" target="_blank">https://console.cloud.google.com/marketplace/details/click-to-deploy-images/tomcat
+                     </a>
+                  </li>
+                  
+                  <li class="mrgn">
+                      Google Container Services support Open JDK 8 on Debian 8 OS. For more details please visit
+                    <a href="https://console.cloud.google.com/marketplace/browse?q=containerimages " target="_blank">https://console.cloud.google.com/marketplace/browse?q=containerimages 
+                     </a>
+                  </li>-->
+              <!--showing advisoryText list here-->
+              <div *ngIf="showAdvisorySurvey2">
+                <li class="mrgn" *ngFor="let advisory of advisorySurvey2">
+                  {{advisory.advisoryText}}
+                  <a [href]=advisory.advisoryURL target="_blank">{{advisory.advisoryURL}}</a>
+                  <!--<a href="https://www.google.com">Click</a>-->
+                  <!--<a href="https://console.cloud.google.com/marketplace/browse?q=containerimages" target="_blank">https://console.cloud.google.com/marketplace/browse?q=containerimages
+                     </a>-->
+                </li>
+              </div>
+
+            </ul>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+      <!-- Platform/cluster Advisory Ends -->
+
+      <!--start-->
+      <div class="tab-pane fade " id="factor" role="tabpanel" aria-labelledby="factor-tab">
+
+        <!--<div class="row">
+            <div class="col col-sm-6" *ngIf="platform12factorBarChartData.length!=0">
+                <div class="card mb-3">
+                    <div class="card-header">
+                       12 Factor Compatibility View
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [datasets]="platform12factorBarChartData" [labels]="platform12factorBarChartLabels" [options]="platform12factorBarChartOptions" [legend]="platform12factorBarChartLegend" [chartType]="platform12factorBarChartType"
+                        [colors]="platform12factorBarChartColors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                    </div>                  
+                </div>
+            </div>                    
+        </div>-->
+
+        <!--<div class="row" style="margin-top:60px;">
+          <div class="col-sm-4" >
+               <label for="email" style="margin-left: 8px;">Application Name:</label>
+          </div>
+          <div class="col-sm-5">
+              <input type="text" class="form-control">
+        </div><br>        
+     </div>-->
+        <div class="row">
+          <div class="col-sm-4">
+            <!-- <label for="email" style="margin-left: 8px;" >Factors:</label> -->
+          </div>
+
+        </div>
+        <br>
+
+
+        <!-- <table class="table table-bordered table-responsive-md table-condensed" >
+                     
+    <tr class="table-info">
+       <th style="width:10%;">12 Factor</th>
+       <th>Source File Name</th>
+       <th>Line Number</th>
+      <th>Severity</th>
+      <th>Priority</th>
+      <th>Voilation Description</th>        
+      <th>Link to File</th>
+      </tr>
+      <tr *ngFor="let val of twelveFactorAdvisory"> 
+      <td>{{val.twelveFactorName}}</td>
+      <td>{{val.source}}</td>
+      <td>{{val.answer_text}}</td>
+      <td>{{val.advisory_text}}</td>
+      <td><a [href]="val.report_url">{{val.report_url}}</a></td>      
+      </tr>
+
+      </table> -->
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <!-- <th style="width:20%;">12 Factor</th>
+                <th>Source</th>
+                <th>Response</th>
+              <th>Suggestions</th>
+              <th>Report URL</th> -->
+              <th>12 Factor</th>
+              <th>Source</th>
+              <th class="col-sm-2">Report Url</th>
+              <th class="col-sm-3">Violation Description</th>
+              <th>Rule Name</th>
+              <th>Line Number</th>
+              <th>Priority</th>
+              <th class="col-sm-3">Source File</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let val of twelveFactorReport">
+              <td>{{val.twelveFactorName}}</td>
+              <td>{{val.sourceOfReport}}</td>
+
+              <td *ngIf="val.reportUrL!='NA'">
+                <a href="{{frontEndUrl}}{{val.reportUrL}}" target="_blank">
+                  Click here to open
+                  <i class="fa fa-external-link"></i>
+                </a>
+              </td>
+              <td *ngIf="val.reportUrL==='NA'">
+                NA
+              </td>
+              <td>{{val.violationDescription}}</td>
+              <td>{{val.ruleName}}</td>
+              <td>{{val.lineNumber}}</td>
+              <td>{{val.priority}}</td>
+              <td class="col-sm-3">{{val.sourceFile}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!--End-->
+    </div>
+  </div>
+
+</div>

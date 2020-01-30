@@ -1,0 +1,408 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Configure'" [icon]="'fa-bar-chart-o'"></app-page-header>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active text-dark" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Image Repository Configuration</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Cloud Environment Configuration</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" id="cluster-tab" data-toggle="tab" href="#cluster" role="tab" aria-controls="cluster" aria-selected="false">Cluster Creation</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+      <div class="row justify-content-left">
+        <div class="col-md-10">
+          <!-- <span class="anchor" id="formChangePassword"></span> -->
+          <hr class="mb-1">
+          <!-- form card change password -->
+          <div class="card card-outline-secondary">
+            <div class="card-header" style="background-color:#BEE5EB;color:#222">
+              <h6>Image Repository Configuration</h6>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="inputPasswordOld">Portfolio Name</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <select class="form-control" name="ddl_projects" (change)="setProjectId($event.target.value)" #ddlprojects>
+                      <option value="0">Select an option</option>
+                      <!--<option>< New ></option>-->
+                      <option *ngFor="let project of projects" [value]="project.projectId">{{project.projectName}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="inputPasswordOld">Repository Server</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <select class="form-control" id="ddlrepol" #repo>
+                      <option>Select Repository</option>
+                      <option>Docker Hub</option>
+                      <option>Nexus</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="inputPasswordOld">Image Repository Name </label>
+                  </div>
+                  <div class="col-sm-6">
+
+                    <input type="irname" class="form-control mb-2 mr-sm-2" required="Please enter image repo name" id="txtiname" #reponame>
+
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="email" class="mr-sm-2">Username</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="username" class="form-control mb-2 mr-sm-2" required="Please enter username" id="email" #username>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="pwd" class="mr-sm-2">Password</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="password" required="Please Enter Password" class="form-control mb-2 mr-sm-2" id="pwd" #pwd>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <!-- <button class="btn btn-success btn-sm float-right" type="submit"  onclick="saveContainerRepo()" >Save1</button> -->
+                <button class="btn btn-default btn-sm float-right" (click)="saveContainerRepo(repo,reponame,username,pwd,ddlprojects)">Save</button>
+              </div>
+
+            </div>
+          </div>
+          <!-- /form card change password -->
+        </div>
+      </div>
+      <!-- Table -->
+      <br>
+      <div class="row justify-content-left" style="margin-left:30px;">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-4">
+              <label for="inputPasswordOld">Portfolio </label>
+            </div>
+            <div class="col-sm-8">
+              <select class="form-control" name="ddl_projects" (change)="showImageRepositories($event.target.value)">
+                <option value="0">Select an option</option>
+                <!--<option>< New ></option>-->
+                <option *ngFor="let project of projects" [value]="project.projectId">{{project.projectName}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-responsive-lg" *ngIf="containerRepo.length!=0">
+        <table class="table-info">
+          <thead style="background-color:#BEE5EB;color:#222">
+            <tr>
+              <th style="width: 2%">Sr. No.</th>
+              <th style="width: 6%">Repo Server</th>
+              <th style="width: 6%">Image RepoName</th>
+              <th style="width: 6%">UserName</th>
+              <th style="width: 6%">Password</th>
+              <th style="width: 6%">Action</th>
+            </tr>
+          </thead>
+          <tbody class="table-light">
+            <tr *ngFor="let val of containerRepo; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{val.repoServer}}</td>
+              <td>{{val.repoName}}</td>
+              <td>{{val.username}}</td>
+              <td>******</td>
+              <td>
+                <button class="btn btn-danger btn-sm float-center" (click)="deleteRepoById(val.repoId,val.projectId,i)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- table End -->
+    </div>
+
+    <!-- 2nd form -->
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+      <div class="row justify-content-left">
+        <div class="col-md-10">
+          <span class="anchor" id="formChangePassword"></span>
+          <hr class="mb-0">
+          <!-- form card change password -->
+          <div class="card card-outline-secondary">
+            <div class="card-header" style="background-color:#BEE5EB;color:#222">
+              <h6 class="mb-0">Cloud Environment Configuration</h6>
+            </div>
+            <div class="card-body">
+              <!-- <form autocomplete="off" class="form" role="form"> -->
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="inputPasswordOld">Portfolio Name</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <select class="form-control" name="ddl_projects1" (change)="setProjectId($event.target.value)" #ddlprojects2>
+                      <option value="0">Select an option</option>
+                      <!--<option>< New ></option>-->
+                      <option *ngFor="let project of projects" [value]="project.projectId">{{project.projectName}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="inputPasswordOld">Environment Name</label>
+                  </div>
+                  <div class="col-sm-6">
+                    <select class="form-control" name="providers" (change)="getProvider($event.target.value)" #provider>
+                      <option>Select Environment</option>
+                      <option>Google Cloud</option>
+                      <option>AWS</option>
+                     <!-- <option>Azure</option>
+                      <option>PCF</option>-->
+
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="inputPasswordOld">Cluster </label>
+                  </div>
+                  <div class="col-sm-6">
+                    <select class="form-control" #cluster>
+                      <option>Select Cluster</option>
+                      <option>Kubernetes</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div [hidden]="!showUsername">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="email" class="mr-sm-2">Access Key ID</label>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="username" class="form-control mb-2 mr-sm-2" #userName>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="pwd" class="mr-sm-2">Secret Access Key</label>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="password" class="form-control mb-2 mr-sm-2" id="pwd" #pwd1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div [hidden]="!showJson">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="jsonfile" class="mr-sm-2">Json File</label>
+                    </div>
+                    <div class="col-sm-6">
+                      <!-- <input type="file" name="file" enctype="multipart/form-data" placeholder="Upload file" (change)="fileChange($event)" accept=".json"  #file>-->
+                      <!-- <input ng-model="file_upload" name="file" type="file" (change)="fileChange($event)" #file>-->
+                      <input type="file" name="file" enctype="multipart/form-data" placeholder="Upload file" (change)="fileChange($event)" accept=".json"  #file>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-default btn-sm float-right" (click)="saveEnvironment(provider,cluster,userName,pwd1,ddlprojects2,file)">Save</button>
+              </div>
+              <!-- </form> -->
+            </div>
+          </div>
+          <!-- /form card change password -->
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row justify-content-left" style="margin-left:30px;">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-4">
+              <label for="inputPasswordOld">Portfolio </label>
+            </div>
+            <div class="col-sm-8">
+              <select class="form-control" name="ddl_projects" (change)="showEnvironment($event.target.value)">
+                <option value="0">Select an option</option>
+                <!--<option>< New ></option>-->
+                <option *ngFor="let project of projects" [value]="project.projectId">{{project.projectName}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="table-responsive-lg" *ngIf="environment.length!=0">
+        <table class="table-info">
+          <thead style="background-color:#BEE5EB;color:#222">
+            <tr>
+              <th style="width: 2%">Sr. No.</th>
+              <th style="width: 6%">Env Name</th>
+              <th style="width: 6%">Service Provider</th>
+              <th style="width: 6%">Account</th>
+              <!--<th style="width: 6%">Password</th>-->
+              <th style="width: 6%">Action</th>
+            </tr>
+          </thead>
+          <tbody class="table-light">
+            <tr *ngFor="let val of environment; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{val.envName}}</td>
+              <td>{{val.serviceProvider}}</td>
+              <td>{{val.username}}</td>
+              <!--<td>******</td>-->
+              <td>
+                <button class="btn btn-danger btn-sm float-center" (click)="deleteEnvironmentById(val.envId,val.projectId,i)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3 Cluster Creation-->
+    <div class="tab-pane fade" id="cluster" role="tabpanel" aria-labelledby="cluster-tab">
+      <div class="row justify-content-left">
+        <div class="col-md-10">
+          <hr class="mb-1">
+          <div class="card card-outline-secondary">
+            <div class="card-header" style="background-color:#BEE5EB;color:#222">
+              <h6>Cluster Creation</h6>
+            </div>
+            <form #clusterForm="ngForm">
+              <div class="card-body">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="csProvider">Cloud Service Provider</label>
+                    </div>
+                    <div class="col-sm-6">
+                      <select class="form-control" name="csProvider" (change)="getProviderName($event.target.value)" #csProvider>
+                        <option value="GCP">Google Cloud</option>
+                        <option>AWS</option>
+                        <!--<option>Azure</option>
+                            <option>Openshift</option>
+                            <option>PCF</option>-->
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="offering">Offering </label>
+                    </div>
+                    <div class="col-sm-6">
+                      <select name="offering" (change)="getOfferingName($event.target.value)" class="form-control mb-2 mr-sm-2" id="offering" #offering>
+                        <option *ngFor="let opt of cloudProviderRenderObj.offering; let i = index;" [value]="opt.optionValue">{{opt.optionName}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" *ngFor="let field of cloudProviderRenderObj.fieldsNameVal; let i = index;">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="{{field.fieldId}}">{{field.fieldName}} </label>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="text" [ngModel]="field.value" name="{{field.fieldId}}" class="form-control mb-2 mr-sm-2" required="Please enter Cluster Name name"
+                        id="{{field.fieldId}}" #{{field.fieldId}}>
+                      <div class="fieldsDesc">{{field.fieldDesc}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+
+                  <div>
+                    <button style="margin-bottom: 10px;" [disabled]="!clusterForm.form.valid" class="btn btn-default btn-sm float-right" data-toggle="modal"
+                      data-target=".bs-example-modal-cluster" id="createClusterBtn" (click)="createCluster(clusterForm,offering,csProvider)">Create Cluster</button>
+                  </div>
+                  <div *ngIf="isGrafanaURL">
+                    <a target="_blank" href="http://{{grafanaURL}}">Click here to see grafana dashboard
+                      <i class="fa fa-external-link"></i>
+                    </a>
+                  </div>
+
+                  <!--Modal -->
+                  <div>
+                    <div class="modal fade bs-example-modal-cluster" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+                      <div class="modal-dialog modal-lg modal-dialog-centered">
+
+                        <!-- Modal Content: begins -->
+                        <div class="modal-content">
+
+                          <!-- Modal Header -->
+                          <div class="modal-header text-info">
+                            <h4>Result</h4>
+                          </div>
+
+                          <!-- Modal Body -->
+                          <div class="modal-body">
+                            <div class="body-message ">
+                              <div class="row">
+                                <label class="clusterCenterFields">Jenkins job has been initiated to build the cluster</label>
+                              </div>
+                              <div [hidden]="!flagAWS">
+                                <div class="row">
+                                  <div class="clusterCenterFields"> Please
+                                    <a style="margin:0 10px;" href="http://156.171.192.35.bc.googleusercontent.com/jenkins/job/AWS-EKS-Cluster/lastBuild/consoleText"
+                                      target="_blank"> Click here </a> to see the Logs</div>
+                                  <br>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Modal Footer -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                        <!-- Modal Content: ends -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

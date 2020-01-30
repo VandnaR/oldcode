@@ -1,0 +1,477 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Build'" [icon]="'fa-bar-chart-o'"></app-page-header>
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active text-dark " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" >App Details</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true" >Code Repository</a>
+    </li>
+    <!--<li class="nav-item">
+      <a class="nav-link bg-dark text-white" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="true">Base Image</a>
+    </li>-->
+    <li class="nav-item">
+      <a class="nav-link text-dark " id="build-tab" data-toggle="tab" href="#build" role="tab" aria-controls="build" aria-selected="true" >Build</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark " id="vm2docker-tab" data-toggle="tab" href="#vm2docker" role="tab" aria-controls="vm2docker" aria-selected="true" >VM Image to Docker</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <!-- App Details Starts  -->
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        
+       
+          <div class="row" style="margin:20px 0px 10px 0px">
+          <div class="col-sm-3">
+            <label class="form-check-label">Portfolio Name: </label>
+          </div>
+          <div class="col-sm-4" align="left">
+            <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="getApps($event.target.value)" #projectName>                            
+                                  <option value="0">Select an option</option>
+                                  <!--<option>< New ></option>-->
+                                  <option                                           
+                                    *ngFor="let project of projects"
+                                    [value]="project.projectId"
+                                  >{{project.projectName}}</option>                                                        
+                          </select>
+          </div>
+          </div>
+          <!--  -->
+          <div class="row" style="margin:10px 0px 10px 0px">
+              <div class="col-sm-3">
+                <label class="form-check-label">Application Name: </label>
+              </div>
+              <div class="col-sm-4" align="left">
+                <select class="form-control" id="ddl_appName" name="ddl_appName" #appName>                            
+                                      <option value="0">Select an option</option>
+                                      <!--<option>< New ></option>-->
+                                      <option                                           
+                                        *ngFor="let app of applications"
+                                        [value]="app.appName"
+                                      >{{app.appName}}</option>                                                       
+                              </select>
+              </div>
+          </div>
+         
+          <div class="row" style="margin:10px 0px 10px 0px">
+              <div class="col-sm-3">
+                <label class="form-check-label"> Application Tag: </label>
+              </div>
+              <div class="col-sm-4" align="left">
+                  <textarea id="ddl_appTag" rows="1"  cols= "33" ng-model="ddl_appTag"  #appTag > </textarea>
+               <!-- <select class="form-control" id="ddl_projects" name="ddl_projects" >                            
+                                      <input type = "text" value="0"/>
+                                      <textarea></textarea>
+                                   
+                              </select>-->
+              </div>
+          </div>
+      <!--
+          <div class="row" style="margin:10px 0px 10px 0px">
+              <div class="col-sm-3">
+                <label class="form-check-label"> OS: </label>
+              </div>
+              <div class="col-sm-4" align="left">
+                <select class="form-control" id="ddl_projects" name="ddl_projects" >                            
+                                      <option value="0">Select an option</option>
+                                     
+                              </select>
+              </div>
+          </div>-->
+          <!-- <div class="row" style="margin:10px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label"> App Type : </label>
+            </div>
+            <div class="col-sm-4" align="left">
+              <select class="form-control" id="ddl_projects" name="ddl_projects" #appType>                            
+                                    <option value="0">Select an option</option>
+                                   <option>Java</option>
+                                   <option>PHP</option>
+                                   <option>Scala</option>
+                            </select>
+            </div>
+        </div> -->
+          <div class="row" style="margin:10px 0px 10px 0px">
+              <div class="col-sm-3">
+                <label class="form-check-label"> App Server : </label>
+              </div>
+              <div class="col-sm-4" align="left">
+                <select class="form-control" id="ddl_projects" name="ddl_projects" #appServer>                            
+                                      <option value="0">Select an option</option>
+                                     <option>Tomcat</option>
+                                     <option>Web Logic</option>
+                                     <option>Websphere Application Server 8.5</option>                                     
+                              </select>
+              </div>
+          </div>     
+    
+      </div> 
+<!-- App Details Ends  -->
+<!-- Code Repository Starts  -->
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <!-- <div class="row" style="margin:20px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label">Project Name: </label>
+            </div>
+            <div class="col-sm-4" align="left">
+                <input type="name" placeholder="Enter Project Name" name="name" required>
+            </div>
+            </div>
+            
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label">Application Name: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                <input type="name" placeholder="Enter Application Name" name="name" required>
+                </div>
+            </div> -->
+            
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label"> Code Repository: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                  <select class="form-control" id="ddl_codeRepository" name="ddl_codeRepository" #codeRepo>                            
+                                        <option value="0">Select Code Repository</option>
+                                        <option value="GIT">GitHub</option>
+                                        <option value="Bitbucket">Bitbucket</option>
+
+                                        <!--<option>< New ></option>-->
+                                        <!-- <option                                           
+                                          *ngFor="let project of projects"
+                                          [value]="project.projectId"
+                                        >{{project.projectName}}</option>   -->
+                                </select>
+                </div>
+            </div>
+            <!--  -->
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label"> Repository Path: </label>
+                </div>
+       
+                <div class="col-sm-4" align="left">
+                    <input class="form-control" type="name" placeholder="Enter Repository Path" name="codeRepoPath" required #codeRepoPath>
+                  <!-- <select class="form-control" id="ddl_projects" name="ddl_projects" >                            
+                                        <option value="0">Select an Repo Path</option>
+                                        <option>< New ></option>
+                                       <option                                           
+                                          *ngFor="let project of projects"
+                                          [value]="project.projectId"
+                                        >{{project.projectName}}</option> 
+                                </select> -->
+                </div>
+            </div>
+            <div class="row" style="margin:10px 0px 10px 0px">
+              <div class="col-sm-3">
+                <label class="form-check-label"> Language: </label>
+              </div>
+     
+              <div class="col-sm-4" align="left">
+                  <!-- <input class="form-control" type="name" placeholder="Language like Java,Cpp" name="codeRepoPath" required #codeRepoPath> -->
+                <select class="form-control" id="ddl_languages" name="ddl_languages" #language>                            
+                      <option value="0">Select an Repo Path</option>
+                      <option>Java</option>
+                      <option>C++</option>
+                      <option>PHP</option>
+                      <option>.NET</option>                      
+                </select>
+              </div>
+          </div>
+            <!--  -->
+          <!--  <div class="row" style="margin:10px 0px 10px 0px">
+              <div class="col-sm-3">
+                <label class="form-check-label"> Code Type : </label>
+              </div>
+              <div class="col-sm-6" align="left">
+                  <div class="form-check-inline">
+                      <label class="form-check-label" for="radio2">
+                        <input type="radio" class="form-check-input" id="radio2" name="codeType" value="maven" #codeType>maven
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="codeType" value="war"checked #codeType>war
+                      </label>
+                    </div></div>
+          </div> -->
+          
+              <div class="row" style="margin:10px 0px 10px 0px">
+              <div class="col-sm-3">
+                <label class="form-check-label"> Code Type : </label>
+              </div>
+              <div class="col-sm-6" align="left">
+                <form id = 'testform'>
+                  <div class="form-check-inline">
+                      <label class="form-check-label" for="radio2">
+                        <input type="radio" class="form-check-input" id="radio2" name="codeType" value="maven"  #codeType>maven 
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label" for="radio1">
+                        <input type="radio" class="form-check-input" id="radio1" name="codeType" value="war" checked  #codeType>war
+                      </label>
+                    </div>
+                  </form>
+                </div>
+
+          </div> 
+
+<!--  -->
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label"> Repo Type : </label>
+                </div>
+                <div class="col-sm-6" align="left">
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="radio2">
+                          <input type="radio" class="form-check-input" id="radio2" name="optradio" value="public" checked #repoType>Public
+                        </label>
+                      </div>
+                      <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" disabled value="private" >Private
+                        </label>
+                      </div></div>
+            </div> 
+   
+    </div>
+<!-- Code Repository Ends  -->
+<!-- Base Image start -->
+    
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="row" style="margin:20px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label">Project Name: </label>
+            </div>
+            <div class="col-sm-4" align="left">
+                <input type="name" placeholder="Enter Project Name" name="name" required>
+            </div>
+            </div>
+            <!--  -->
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label">Application Name: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                <input type="name" placeholder="Enter Application Name" name="name" required>
+                </div>
+            </div>
+            <!--  -->
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label"> Tech Combination : </label>
+                </div>
+                <div class="col-sm-4" align="left"><input type="name" placeholder="Enter Tech Combination" name="name" required>
+                </div>
+            </div>
+            <!--  -->
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label"> Base Image: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                  <select class="form-control" id="ddl_projects" name="ddl_projects" >                            
+                                        <option value="0">Select an Base Image</option>
+                                        <!--<option>< New ></option>-->
+                                        <!-- <option                                           
+                                          *ngFor="let project of projects"
+                                          [value]="project.projectId"
+                                        >{{project.projectName}}</option>                                                        <option> <{{"New"}}> </option> -->
+                                </select>
+                </div>
+            </div>
+            <!--  -->
+            <div class="row" style="margin:0px 0px 0px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label"> Docker File : </label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="btn">
+                        <input type="file" multiple>
+                    </div>                   
+                </div>
+            </div> 
+   
+    </div>
+    <!--Base image Ends  -->
+    <!-- Build Start -->
+    <div class="tab-pane fade" id="build" role="tabpanel" aria-labelledby="build-tab">
+        <div class="row" style="margin:20px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label"> Build Type : </label>
+            </div>
+            <div class="col-sm-4" align="left">
+              <select class="form-control" id="ddl_projects" name="ddl_projects" #buildType>                            
+                                    <option value="0">Select Type</option>
+                                    <option value="Jenkins">Jenkins</option>
+                                    
+                                    <!--<option>< New ></option>-->
+                                    <!-- <option                                           
+                                      *ngFor="let project of projects"
+                                      [value]="project.projectId"
+                                    >{{project.projectName}}</option>                                                        <option> <{{"New"}}> </option> -->
+                            </select>
+            </div>
+        </div>
+        <!--  -->
+        <div class="row" style="margin:10px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label"> Build Image Repository: </label>
+            </div>
+            <div class="col-sm-4" align="left">
+              <select class="form-control" id="ddl_projects" name="ddl_projects" #builtImageRepo>                            
+                                    <option value="0">Select an repository</option>
+                                    <option                                           
+                                      *ngFor="let containerRepo of containerRepo"
+                                      [value]="containerRepo.repoName"
+                                    >{{containerRepo.repoName}}</option>                                                       
+                            </select>
+            </div>
+            
+        </div>
+        <div class="row" style="margin:10px 0px 10px 0px">
+            <div class="col-sm-3">
+              
+            </div>
+            <div class="col-sm-4" align="left">
+             <button class="btn btn-default" (click)="jenkinsBuild(codeRepoPath,appName,builtImageRepo,appServer,codeRepo,language,codeType,repoType,buildType,appTag)" [disabled]="showLoad || completed">Build</button>
+             
+            </div>            
+        </div>
+        <div class="row" style="margin:10px 0px 10px 0px">
+            <div class="col-sm-3">
+              
+            </div>
+            <div class="col-sm-4" *ngIf="showLoad;">                            
+              <i class="fa fa-spinner fa-spin" style="font-size:20px"></i> &nbsp; Build is in progress                          
+            </div>  
+            <div class="col-sm-4" *ngIf="completed"> 
+              <!-- <div class="alert alert-success"> -->
+                 <div [ngClass]="toggleClass ? 'alert alert-success' : 'alert alert-danger'">
+                      <strong>Build {{jenkinsStatus}}</strong> 
+              </div>
+            </div>        
+        </div>
+        <div class="row" style="margin:10px 0px 10px 0px">
+          <div class="col-sm-3">
+            
+          </div>          
+          <div class="col-sm-4" *ngIf="completed"> 
+            <a [routerLink]="['/blank-page']">
+              Click here to see vulnerabilities report <i class="fa fa-external-link"></i>
+            </a>
+               
+          </div>        
+      </div>
+                
+    </div>
+    <!-- Build Ends -->
+    <!-- Vm2Docker Starts -->
+    <div class="tab-pane fade" id="vm2docker" role="tabpanel" aria-labelledby="vm2docker-tab">
+        <div class="row" style="margin:20px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label">Portfolio Name: </label>
+            </div>
+            <div class="col-sm-4" align="left">
+              <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="getApps($event.target.value)" #projectNameVM>                            
+                                    <option value="0">Select an option</option>
+                                    <!--<option>< New ></option>-->
+                                    <option                                           
+                                      *ngFor="let project of projects"
+                                      [value]="project.projectId"
+                                    >{{project.projectName}}</option>                                                        
+                            </select>
+            </div>
+            </div>
+            
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label">Application Name: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                  <select class="form-control" id="ddl_appName" name="ddl_appName" #appNameVM>                            
+                                        <option value="0">Select an option</option>
+                                        <!--<option>< New ></option>-->
+                                        <option                                           
+                                          *ngFor="let app of applications"
+                                          [value]="app.appName"
+                                        >{{app.appName}}</option>                                                       
+                                </select>
+                </div>
+            </div>     
+           
+      <div class="row" style="margin:10px 0px 10px 0px">
+          <div class="col-sm-3">
+            <label class="form-check-label"> Build Image Repository: </label>
+          </div>
+          <div class="col-sm-4" align="left">
+            <select class="form-control" id="ddl_projects" name="ddl_projects" #builtImageRepoVM>                            
+                                  <option value="0">Select an repository</option>
+                                  <option                                           
+                                    *ngFor="let containerRepo of containerRepo"
+                                    [value]="containerRepo.repoName"
+                                  >{{containerRepo.repoName}}</option>                                                       
+                          </select>
+          </div>
+          
+      </div>
+      <div class="row" style="margin:20px 0px 10px 0px">
+          <div class="col-sm-3">
+            <label class="form-check-label"> S3 path(vmdk File) : </label>
+          </div>         
+          <div class="col-sm-4" align="left">
+            <input class="form-control" type="text" #s3pathVM >
+        </div>
+      </div>
+      <div class="row" style="margin:10px 0px 10px 0px">
+          <div class="col-sm-3">
+            
+          </div>
+          <div class="col-sm-4" align="left">
+           <button class="btn btn-default" (click)="buildImage(projectNameVM,appNameVM,builtImageRepoVM,s3pathVM)" [disabled]="showLoad || completed">Build Image</button>           
+          </div>                               
+      </div>
+      <div class="row" style="margin:10px 0px 10px 0px">
+        <div class="col-sm-3">
+          
+        </div>
+        <div class="col-sm-7">
+          <i *ngIf="vm2dockerStatus" class="fa fa-spinner fa-spin" style="font-size:20px"> </i>&nbsp;{{vm2dockerMsg}}
+        </div>                             
+    </div>       
+      <div class="row" style="margin:10px 0px 10px 0px">
+          <div class="col-sm-3">
+            
+          </div>
+          <div class="col-sm-4" *ngIf="showLoad;">                            
+            <i class="fa fa-spinner fa-spin" style="font-size:20px"></i> &nbsp; Build is in progress                          
+          </div>  
+          <div class="col-sm-4" *ngIf="completed"> 
+            <!-- <div class="alert alert-success"> -->
+               <div [ngClass]="toggleClass ? 'alert alert-success' : 'alert alert-danger'">
+                    <strong>Build {{jenkinsStatus}}</strong> 
+            </div>
+          </div>        
+      </div>
+      <div class="row" style="margin:10px 0px 10px 0px">
+        <div class="col-sm-3">
+          
+        </div>          
+        <div class="col-sm-4" *ngIf="completed"> 
+          <a [routerLink]="['/blank-page']">
+            Click here to see vulnerabilities report <i class="fa fa-external-link"></i>
+          </a>
+             
+        </div>        
+    </div>
+              
+  </div>
+    <!-- Vm2Docker Ends -->
+  </div>
+  <!-- <i *ngIf="load" class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i> -->
+
+</div>  

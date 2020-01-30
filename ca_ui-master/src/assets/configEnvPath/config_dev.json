@@ -1,0 +1,11 @@
+{
+    "url": "http://localhost:8090/", 
+    "serverUrl": "http://localhost:8090/",
+    "clusterUrl": "https://156.171.192.35.bc.googleusercontent.com/",
+    "login_url":"http://localhost:4401/",
+    "frontEndUrl":"http://ec2-35-175-68-194.compute-1.amazonaws.com:18080/",
+    "fileUploadUrl": "http://localhost:8091/",
+    "createImagesUrl":"http://ec2-35-175-68-194.compute-1.amazonaws.com:8093/",
+    "clientAppId": "DMApp01",
+    "clientAppSecret": "dm123456"
+}

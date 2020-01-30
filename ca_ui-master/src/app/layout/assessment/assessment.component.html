@@ -1,0 +1,654 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Assess'" [icon]="'fa-bar-chart-o'"></app-page-header>
+    <div class="accordion" align="left">
+      <div class="row">
+        <div class="col-sm-4">
+          <label class="form-check-label">Portfolio Name: </label>
+        </div>
+        <div class="col-sm-6">
+          <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="getApps($event.target.value)">                            
+                                <option value="0">Select an option</option>
+                                <!--<option>< New ></option>-->
+                                <option                                           
+                                  *ngFor="let project of projects"
+                                  [value]="project.projectId"
+                                  >{{project.projectName}}</option>                                 
+                        </select>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <label class="form-check-label">Application Name: </label>          
+        </div>
+        <div class="col-sm-6">
+          <select 
+            class="form-control" 
+            id="ddl_applications" 
+            name="ddl_applications"
+            (change)="saveSurveyResponse($event.target.value)"
+             >                            
+                      <option value="0">Select an option</option>                                
+                      <!--<option>< New ></option>-->
+                      <option                                           
+                        *ngFor="let app of applications" 
+                        [value]="app.appId"                                 
+                        >{{app.appName}}</option>
+                        <option> <{{"New"}}> </option>                                                        
+          </select>
+        </div>
+      </div>
+      
+       <div class="row" *ngIf="showNewApp">
+        <div class="col-sm-4">
+          <label class="form-check-label">New Application : </label>          
+        </div>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" (change)="saveNewApp($event.target.value)">
+        </div>
+      </div>
+      <br>
+      <div *ngIf="env === 'dev'">
+        <!-- Deepak code begins-->        
+        <div *ngFor="let cName of getCategory(); let i=index;" [hidden]="this.assessmentService.hiddenCategory.includes(cName.categoryName)">
+          <div class="card">
+            <div id="headingTwo">
+              <h5 class="mb-0">
+                <button class="block" data-toggle="collapse" attr.data-target="#collapsediv{{i}} " aria-expanded="True">
+               {{cName.categoryName}}
+              </button>
+              </h5>
+            </div>
+            <div id="{{ 'collapsediv' + i }}" class="collapse" *ngFor="let question of mapByCategory.get(cName.categoryName)">
+              <div *ngIf="question.questionType === 'SIMPLE'"
+               [hidden]="assessmentService.hiddenQuesId.includes(question.questionId)">
+                <div class="row">
+                  <div class="col-sm-12" style="margin-left:22px;margin-top:8px;margin-bottom:3px">
+                    <label class="form-check-label">{{question.question}}</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4" style="margin-left:45px;margin-bottom:8px;margin-top:5px">
+                    <app-answeroptions 
+                      [question]="question" 
+                      [answerOptions]="mapByQID.get(question.questionId)" 
+                      [questionsList]="questions"
+                      [answersMapByQID]="mapByQID"                    
+                     >
+                    </app-answeroptions>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Deepak code ends -->
+
+
+      <div *ngIf="env === 'html'">
+        <!-- Umesh code begins-->
+
+
+        <div class="card">
+          <div id="headingTwo">
+            <h5 class="mb-0">
+              <button class="block" data-toggle="collapse" data-target="#collapsediv1" aria-expanded="True">
+            Business
+          </button>
+            </h5>
+          </div>
+          <!-- <div class="collapse div1" id="collapsediv1">
+            <div class="card card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+            </div>
+          </div> -->
+          <div id="collapsediv1" class="collapse">
+            <div class=""><br>
+              <div class="row">
+                <div class="col-sm-4">
+                  <label class="form-check-label" style="padding-left:25px;">What are the business Drivers :</label>
+</div>
+<div class="col-sm-6">
+  <select class="form-control">
+                            <option>select option</option>
+                            <option>cost optimization</option>
+                            <option>New Technology Adoption</option>
+                            <option>Application Simplification</option>
+                            <option>Both cost optimization and new technology adoption</option>
+                            <option>Managed, High Business Value with faster time to market need </option>
+                          </select>
+</div>
+</div> <br>
+
+<div class="row">
+  <div class="col-sm-4">
+    <label class="form-check-label" style="padding-left:25px;"> What are the business Drivers :&nbsp;&nbsp;&nbsp;</label>
+</div>
+<div class="col-sm-6">
+  <select class="form-control">           
+                          <option>Select option</option>
+                          <option>Self Managed, High Business Value with faster time to market need </option>
+                          <option>Self Managed, with low business value</option>
+                          <option>Relish</option>            
+                      </select>
+</div>
+</div><br>
+
+</div>
+</div>
+</div>
+<!--  -->
+<div class="card">
+  <div id="headingThree">
+    <h5 class="mb-0">
+      <button class="block" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true">
+                  UI Layer
+                </button>
+    </h5>
+  </div>
+  <div id="collapseThree" class="collapse">
+    <div class="well well-sm">
+      <div class="card-body">
+        <label class="form-check-label"> Please Select the UI components of application : </label>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> HTML/CSS/javaScript          
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> JQuery         
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Ruby         
+                                        </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> PHP          
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> BootStrap          
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> .NET         
+                                        </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> AngularJS          
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Drupal         
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Python         
+                                        </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<div class="card">
+  <div id="headingFour">
+    <h5 class="mb-0">
+      <button class="block" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false">
+                      Application Runtime
+                    </button>
+    </h5>
+  </div>
+  <div id="collapseFour" class="collapse">
+    <div class="well well-sm">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input" data-toggle="modal" data-target="#myModal"> Tomcat         
+                                        </label>
+              <div class="modal fade" id="myModal" align="center">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Please Select tomcat Version :</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <div class="row" class="col-sm-6">
+                        <select class="form-control">
+                                                        <option>select version</option>
+                                                        <option>Tomcat 1 </option>
+                                                        <option>Tomcat 2</option>
+                                                        <option>Tomcat 3</option>
+                                                        <option>Tomcat 4</option>
+                                                    </select>
+                      </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <select class="form-control">
+                                            <option>select version</option>
+                                            <option>Tomcat 1 </option>
+                                            <option>Tomcat 2</option>
+                                            <option>Tomcat 3</option>
+                                            <option>Tomcat 4</option>
+                                        </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> WepSphere          
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <select class="form-control">
+                                            <option>select version</option>
+                                            <option>WepSphere 1 </option>
+                                            <option>WepSphere 2</option>
+                                            <option>WepSphere 3</option>
+                                            <option>WepSphere 4</option>
+                                      
+                                    </select>
+            </div>
+          </div>
+        </div>
+        <!-- secound row started --><br>
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Jboss          
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <select class="form-control">
+                                            <option>select version</option>
+                                            <option>Jboss 1 </option>
+                                            <option>Jboss 2</option>
+                                            <option>Jboss 3</option>
+                                            <option>Jboss 4</option>
+                                    </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Weblogic         
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <select class="form-control">
+                                            <option>select version</option>
+                                            <option>Weblogic 1 </option>
+                                            <option>Weblogic 2</option>
+                                            <option>Weblogic 3</option>
+                                            <option>Weblogic 4</option>
+                                    </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+
+<div class="card">
+  <div id="headingFive">
+    <h5 class="mb-0">
+      <button class="block" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true">
+                      OS
+                    </button>
+    </h5>
+  </div>
+  <div id="collapseFive" class="collapse">
+    <div class="well well-sm">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+        labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<div class="card">
+  <div id="headingSix">
+    <h5 class="mb-0">
+      <button class="block" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true">
+                      Business Logic Layer
+                    </button>
+    </h5>
+  </div>
+  <div id="collapseSix" class="collapse">
+    <div class="well ">
+      <div class="card-body"><label class="form-check-label"> Please Select Components used for Business Logic layer : </label>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Apache XML Beans         
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Axis 2         
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Spring MVC         
+                                        </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> EJB          
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Struts         
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Visual Studio          
+                                        </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Hibernate          
+                                        </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Spring Boot          
+                                        </label>
+            </div>
+          </div>
+          <!-- <div class="col-sm-4">
+                                <div class="form-check">
+                                        <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input"> Python         
+                                        </label>
+                                </div>
+                                </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<div class="card">
+  <div id="headingSeven">
+    <h5 class="mb-0">
+      <button class="block" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true">
+                     Data Storage
+                    </button>
+    </h5>
+  </div>
+  <div id="collapseSeven" class="collapse">
+    <div class="well well-sm">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                                                 <input type="checkbox" class="form-check-input"> RDBMS         
+                                             </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <select class="form-control">
+                                        
+                                             <option>select version</option>
+                                             <option>RDBMS 1 </option>
+                                             <option>RDBMS 2</option>
+                                             <option>RDBMS 3</option>
+                                             <option>RDBMS 4</option>
+                                        
+                                     </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                                                 <input type="checkbox" class="form-check-input"> NoSQL         
+                                             </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <select class="form-control">
+                                      
+                                             <option>select version</option>
+                                             <option>SQL 1 </option>
+                                             <option>SQL 2</option>
+                                             <option>SQL 3</option>
+                                             <option>SQL 4</option>
+                                      
+                                     </select>
+            </div>
+          </div>
+        </div>
+        <!-- secound row started --><br>
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                                                 <input type="checkbox" class="form-check-input"> InMemory/Cache          
+                                             </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <select class="form-control">
+                                        
+                                             <option>select version</option>
+                                             <option>Memory 1 </option>
+                                             <option>Memory 2</option>
+                                             <option>Memory 3</option>
+                                             <option>Memory 4</option>
+                                        
+                                     </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                                                 <input type="checkbox" class="form-check-input"> Open Source DB          
+                                             </label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-check">
+              <select class="form-control">
+                                         
+                                             <option>select version</option>
+                                             <option>OS DB 1 </option>
+                                             <option>OS DB 2</option>
+                                             <option>OS DB 3</option>
+                                             <option>OS DB 4</option>
+                                         
+                                     </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->
+<div class="card">
+  <div id="headingEight">
+    <h5 class="mb-0">
+      <button class="block" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true">
+                     Security
+                    </button>
+    </h5>
+  </div>
+  <div id="collapseEight" class="collapse">
+
+    <div class="card-body">
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+      non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+      aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+      beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+      craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable
+      VHS.
+    </div>
+
+  </div>
+</div>
+<!--  -->
+
+<div class="card">
+  <div id="headingNine">
+    <h5 class="mb-0">
+      <button class="block" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true">
+                     Logging and Monitoring 
+                    </button>
+    </h5>
+  </div>
+  <div id="collapseNine" class="collapse">
+    <div class="well well-sm">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+        labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<div class="card">
+  <div id="headingTen">
+    <h5 class="mb-0">
+      <button class="block" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false">
+                     Integration
+                    </button>
+    </h5>
+  </div>
+  <div id="collapseTen" class="collapse">
+    <div class="well well-lm">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+        non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+        labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+<!-- Umesh code begins-->                           
+
+<button class="btn btn primary" style="margin-top:10px;align:center" (click)="onAssessmentSubmitted()">Submit</button>
+
+<div *ngIf="showLoad;">                            
+  <i class="fa fa-spinner fa-spin" style="font-size:20px"></i> &nbsp; Submitting ..
+</div> 
+    <!--<span *ngIf="status">Analysis is in progress <i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i></span>-->
+ 
+<br>
+<br>
+
+</div></div>

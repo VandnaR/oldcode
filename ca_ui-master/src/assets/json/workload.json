@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Infra Server",
+    "value": 250
+  },
+  {
+    "id": 2,
+    "name": "Security Tools",
+    "value": 50
+  },
+  {
+    "id": 3,
+    "name": "Business Apps",
+    "value": 750
+  }
+]

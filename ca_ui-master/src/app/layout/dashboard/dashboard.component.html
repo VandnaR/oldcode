@@ -1,0 +1,94 @@
+<div [@routerTransition]>        
+    <!-- <div class="row">
+        <div class="col-md-12">
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slider of sliders">
+                    <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
+                    <div class="carousel-caption">
+                        <h3>{{slider.label}}</h3>
+                        <p>{{slider.text}}</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+    </div>
+    <hr> -->
+<!--    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'primary'" [icon]="'fa fa-building-o'" [count]="12" [label]="'Assessed Applications!'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'info'" [icon]="'fa fa-refresh'" [count]="6" [label]="'Built Applications!'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'success'" [icon]="'fa fa-cogs'" [count]="5" [label]="'Config!'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'danger'" [icon]="'fa fa-dot-circle-o'" [count]="4" [label]="'Deployed Applications!'"></app-stat>
+        </div>
+    </div>-->
+
+        <div class="row" style="margin-top:100px;">
+            <div class="col col-sm-6" *ngIf="companyPortfolioBarChartData.length!=0">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Application Portfolio View
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [datasets]="companyPortfolioBarChartData" [labels]="companyPortfolioBarChartLabels" [options]="companyPortfolioBarChartOptions" [legend]="companyPortfolioBarChartLegend" [chartType]="companyPortfolioBarChartType"
+                        [colors]="companyPortfolioBarChartColors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                    </div>
+                    <!--<div class="card-footer">
+                        <button class="btn btn-info btn-sm" (click)="randomize()">Update</button>
+                    </div>-->
+                </div>
+            </div>     
+            <div class="col col-sm-6" *ngIf="assessmentStatusBarChartData.length!=0">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Application Assessment View
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [datasets]="assessmentStatusBarChartData" [labels]="assessmentStatusBarChartLabels" [options]="assessmentStatusBarChartOptions" [legend]="assessmentStatusBarChartLegend" [chartType]="assessmentStatusBarChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                    </div>
+                    <!--<div class="card-footer">
+                        <button class="btn btn-info btn-sm" (click)="randomize()">Update</button>
+                    </div>-->
+                </div>
+            </div>           
+        </div>
+        <div class="row" >
+            <div class="col col-sm-6" *ngIf="buildStatusBarChartData.length!=0">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Application Build View
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [datasets]="buildStatusBarChartData" [labels]="buildStatusBarChartLabels" [options]="buildStatusBarChartOptions" [legend]="buildStatusBarChartLegend" 
+                        [colors]="buildStatusBarChartColors"
+                        [chartType]="buildStatusBarChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                    </div>
+                    <!--<div class="card-footer">
+                        <button class="btn btn-info btn-sm" (click)="randomize()">Update</button>
+                    </div>-->
+                </div>
+            </div>       
+            <div class="col col-sm-6" *ngIf="deployStatusBarChartData.length!=0">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Application Deploy View
+                    </div>
+                    <div class="card-body">
+                        <canvas baseChart [datasets]="deployStatusBarChartData" [labels]="deployStatusBarChartLabels" [options]="deployStatusBarChartOptions" [legend]="deployStatusBarChartLegend" [chartType]="deployStatusBarChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                        </canvas>
+                    </div>
+                    <!--<div class="card-footer">
+                        <button class="btn btn-info btn-sm" (click)="randomize()">Update</button>
+                    </div>-->
+                </div>
+            </div>             
+        </div>
+    </div>

@@ -1,0 +1,68 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Clair Report'" [icon]="'fa-bar-chart-o'"></app-page-header>
+    <div class="container">
+        <h5>Vulnerabilities</h5>
+        <div *ngIf="(clair.Vulnerabilities | json) != '{}';else novulnerabilities">
+            <div *ngIf="clair.Vulnerabilities.Low && clair.Vulnerabilities.Low.length >0">
+                <h6>LOW {{low}}</h6>            
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <!-- <th>NamespaceName</th> -->
+                            <th>Description</th>
+                            <th>Link</th>
+                            <th>Severity</th>
+                            <!-- <th>FixedBy</th>
+                            <th>FeatureName</th>
+                            <th>FeatureVersion</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let val of clair.Vulnerabilities.Low">
+                            <td>{{val.Name}}</td>
+                            <!-- <td>{{val.NamespaceName}}</td> -->
+                            <td>{{val.Description}}</td>
+                            <td>{{val.Link}}</td>
+                            <td>{{val.Severity}}</td>
+                            <!-- <td>{{val.FixedBy}}</td>
+                            <td>{{val.FeatureName}}</td>
+                            <td>{{val.FeatureVersion}}</td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div *ngIf="clair.Vulnerabilities.High && clair.Vulnerabilities.High.length >0">
+                <h6>High {{high}}</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <!-- <th>NamespaceName</th> -->
+                            <th>Description</th>
+                            <th>Link</th>
+                            <th>Severity</th>
+                            <!-- <th>FixedBy</th>
+                            <th>FeatureName</th>
+                            <th>FeatureVersion</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let val of clair.Vulnerabilities.High">
+                            <td>{{val.Name}}</td>
+                            <!-- <td>{{val.NamespaceName}}</td> -->
+                            <td>{{val.Description}}</td>
+                            <td>{{val.Link}}</td>
+                            <td>{{val.Severity}}</td>
+                            <!-- <td>{{val.FixedBy}}</td> 
+                            <td>{{val.FeatureName}}</td> 
+                            <td>{{val.FeatureVersion}}</td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <ng-template #novulnerabilities>No Vulnerabilities found</ng-template>
+    </div>
+</div>	

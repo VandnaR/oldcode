@@ -1,0 +1,18 @@
+{
+  "discovery": {
+    "title" : "discovery",
+    "description":"<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.Ut tempor pretium mauris sit amet luctus quam congue non.</p><p>Nullam porta pellentesque massa donec eu mauris tellus suspendisse faucibus porttitor nunc at congue.</p><p>Quisque eros nunc, varius eget semper eget, imperdiet vitae orci.Pellentesque cursus massa at nunc malesuada, vitae varius diam tempor.</p>"
+  },
+  "assessment": {
+    "title" : "assessment",
+    "description":"<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.Ut tempor pretium mauris sit amet luctus quam congue non.</p><p>Nullam porta pellentesque massa donec eu mauris tellus suspendisse faucibus porttitor nunc at congue.</p><p>Quisque eros nunc, varius eget semper eget, imperdiet vitae orci.Pellentesque cursus massa at nunc malesuada, vitae varius diam tempor.</p>"
+  },
+  "migration": {
+    "title" : "migration",
+    "description":"<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.Ut tempor pretium mauris sit amet luctus quam congue non.</p><p>Nullam porta pellentesque massa donec eu mauris tellus suspendisse faucibus porttitor nunc at congue.</p><p>Quisque eros nunc, varius eget semper eget, imperdiet vitae orci.Pellentesque cursus massa at nunc malesuada, vitae varius diam tempor.</p>"
+  },
+  "assurance": {
+    "title" : "assurance",
+    "description":"<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.Ut tempor pretium mauris sit amet luctus quam congue non.</p><p>Nullam porta pellentesque massa donec eu mauris tellus suspendisse faucibus porttitor nunc at congue.</p><p>Quisque eros nunc, varius eget semper eget, imperdiet vitae orci.Pellentesque cursus massa at nunc malesuada, vitae varius diam tempor.</p>"
+  }
+}

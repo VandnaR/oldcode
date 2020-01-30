@@ -1,0 +1,1422 @@
+{
+  "yetToStart": [{
+      "name": "Move Gr. 1",
+      "data": [{
+          "name": "Rehost",
+          "value": 15
+        },
+        {
+          "name": "Replatform",
+          "value": 12.5
+        },
+        {
+          "name": "Refactor",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "name": "Move Gr. 2",
+      "data": [{
+          "name": "Rehost",
+          "value": 13
+        },
+        {
+          "name": "Replatform",
+          "value": 9
+        },
+        {
+          "name": "Refactor",
+          "value": 12
+        }
+      ]
+    },
+    {
+      "name": "Move Gr. 3",
+      "data": [{
+          "name": "Rehost",
+          "value": 10
+        },
+        {
+          "name": "Replatform",
+          "value": 7
+        },
+        {
+          "name": "Refactor",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "Move Gr. 4",
+      "data": [{
+          "name": "Rehost",
+          "value": 12.5
+        },
+        {
+          "name": "Replatform",
+          "value": 9
+        },
+        {
+          "name": "Refactor",
+          "value": 14
+        }
+      ]
+    }
+  ],
+  "inProgress": [{
+      "name": "Move Gr. 1",
+      "data": [{
+          "name": "Rehost",
+          "value": 11
+        },
+        {
+          "name": "Replatform",
+          "value": 7
+        },
+        {
+          "name": "Refactor",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "name": "Move Gr. 2",
+      "data": [{
+          "name": "Rehost",
+          "value": 12.5
+        },
+        {
+          "name": "Replatform",
+          "value": 9
+        },
+        {
+          "name": "Refactor",
+          "value": 14
+        }
+      ]
+    },
+    {
+      "name": "Move Gr. 3",
+      "data": [{
+          "name": "Rehost",
+          "value": 15
+        },
+        {
+          "name": "Replatform",
+          "value": 12.5
+        },
+        {
+          "name": "Refactor",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "name": "Move Gr. 4",
+      "data": [{
+          "name": "Rehost",
+          "value": 13
+        },
+        {
+          "name": "Replatform",
+          "value": 10
+        },
+        {
+          "name": "Refactor",
+          "value": 12
+        }
+      ]
+    }
+  ],
+  "completed": [{
+      "name": "Move Gr. 1",
+      "data": [{
+          "name": "Rehost",
+          "value": 13
+        },
+        {
+          "name": "Replatform",
+          "value": 10
+        },
+        {
+          "name": "Refactor",
+          "value": 12
+        }
+      ]
+    },
+    {
+      "name": "Move Gr. 2",
+      "data": [{
+          "name": "Rehost",
+          "value": 11
+        },
+        {
+          "name": "Replatform",
+          "value": 7
+        },
+        {
+          "name": "Refactor",
+          "value": 3.5
+        }
+      ]
+    },
+    {
+      "name": "Move Gr. 3",
+      "data": [{
+          "name": "Rehost",
+          "value": 12.5
+        },
+        {
+          "name": "Replatform",
+          "value": 9
+        },
+        {
+          "name": "Refactor",
+          "value": 14
+        }
+      ]
+    },
+    {
+      "name": "Move Gr. 4",
+      "data": [{
+          "name": "Rehost",
+          "value": 15
+        },
+        {
+          "name": "Replatform",
+          "value": 3
+        },
+        {
+          "name": "Refactor",
+          "value": 9
+        }
+      ]
+    }
+  ],
+  "migrationProgress": [{
+      "id": 1,
+      "title": "Acme Move Group 1",
+      "category": "Migration Progress Detailed",
+      "data": [{
+          "id": 1,
+          "applicationName": "BroadLeaf",
+          "rLane": "Rehost",
+          "targetCloud": "AZURE",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 2,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "confirm"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "success"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 3,
+          "applicationName": "Share Point Server",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "success"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 4,
+          "applicationName": "Open Cart",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 5,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "pending"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "confirm"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 6,
+          "applicationName": "BroadLeaf",
+          "rLane": "Rehost",
+          "targetCloud": "AZURE",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 7,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "confirm"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "success"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 8,
+          "applicationName": "Share Point Server",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "success"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 9,
+          "applicationName": "Open Cart",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 10,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "pending"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "confirm"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Acme Move Group 2",
+      "category": "Migration Progress Detailed",
+      "data": [{
+          "id": 1,
+          "applicationName": "BroadLeaf",
+          "rLane": "Rehost",
+          "targetCloud": "AZURE",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 2,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "confirm"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "success"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 3,
+          "applicationName": "Share Point Server",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "success"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 4,
+          "applicationName": "Open Cart",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 5,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "pending"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "confirm"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 6,
+          "applicationName": "BroadLeaf",
+          "rLane": "Rehost",
+          "targetCloud": "AZURE",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 7,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "confirm"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "success"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 8,
+          "applicationName": "Share Point Server",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "success"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 9,
+          "applicationName": "Open Cart",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 10,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "pending"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "confirm"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Acme Move Group 3",
+      "category": "Migration Progress Detailed",
+      "data": [{
+          "id": 1,
+          "applicationName": "BroadLeaf",
+          "rLane": "Rehost",
+          "targetCloud": "AZURE",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 2,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "confirm"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "success"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 3,
+          "applicationName": "Share Point Server",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "success"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 4,
+          "applicationName": "Open Cart",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 5,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "pending"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "confirm"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 6,
+          "applicationName": "BroadLeaf",
+          "rLane": "Rehost",
+          "targetCloud": "AZURE",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 7,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "confirm"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "success"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 8,
+          "applicationName": "Share Point Server",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "success"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 9,
+          "applicationName": "Open Cart",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 10,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "pending"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "confirm"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Acme Move Group 4",
+      "category": "Migration Progress Detailed",
+      "data": [{
+          "id": 1,
+          "applicationName": "BroadLeaf",
+          "rLane": "Rehost",
+          "targetCloud": "AZURE",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 2,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "confirm"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "success"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 3,
+          "applicationName": "Share Point Server",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "success"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 4,
+          "applicationName": "Open Cart",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 5,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "pending"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "confirm"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 6,
+          "applicationName": "BroadLeaf",
+          "rLane": "Rehost",
+          "targetCloud": "AZURE",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 7,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "confirm"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "success"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 8,
+          "applicationName": "Share Point Server",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "success"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 9,
+          "applicationName": "Open Cart",
+          "rLane": "Replatform",
+          "targetCloud": "GCP",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "success"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "confirm"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "pending"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        },
+        {
+          "id": 10,
+          "applicationName": "Acme Application",
+          "rLane": "Refactor",
+          "targetCloud": "AWS",
+          "migration": "success",
+          "testing": [{
+              "name": "Infrastructure Build",
+              "status": "confirm"
+            },
+            {
+              "name": "Functional",
+              "status": "success"
+            },
+            {
+              "name": "Performance",
+              "status": "success"
+            },
+            {
+              "name": "Infrastructure",
+              "status": "pending"
+            },
+            {
+              "name": "Operation Readliness",
+              "status": "confirm"
+            }
+          ],
+          "userAcceptanceTesting": "pending",
+          "productionCutover": "pending"
+        }
+      ]
+    }
+  ]
+}

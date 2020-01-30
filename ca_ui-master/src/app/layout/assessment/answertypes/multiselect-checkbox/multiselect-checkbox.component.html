@@ -1,0 +1,91 @@
+
+<div *ngFor="let answers of answersoptions;">    
+      <!--<div class="form-check">-->
+        <div class="five">
+        <label style="margin-left:20px">
+                <input 
+                  (change)="open(content,answers.answerOptionsId,$event,1)" type="checkbox" class="form-check-input"
+                  [checked]="getAnswersArr().includes(answers.answerOptionsId) || answers.answerOptionsId === this.assessmentService.ERP"                  
+                > {{answers.answerText}} 
+               <button class="childbtn"
+                  *ngIf="checkIfChildExist(answers.answerOptionsId)"                
+                  (click)="showChildQuestions(content,answers.answerOptionsId,$event,1)">
+                  <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                </button>
+        </label>  
+        </div>      
+        <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <!--<h4 class="modal-title">Modal title</h4>-->
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label class="form-check-label">{{questobeShown.question}}</label>
+                    </div>
+                    <div class="col-sm-4" *ngIf="questobeShown.answerType == 'SINGLE_SELECT'">
+                         <select class="form-control" (change)="open(content,$event.target.value,$event,3)">                            
+                                <option>Select an option</option>
+                                <option *ngFor="let answers of ansMap.get(questobeShown.questionId)"
+                                [value]="answers.answerOptionsId"
+                                [selected]="getAnswersArr().includes(answers.answerOptionsId)"
+                                >{{answers.answerText}} </option>                                              
+                          </select>    
+                          
+                          
+                          
+                    </div>    
+                    <div class="col-sm-4" *ngIf="questobeShown.answerType == 'MULTI_SELECT_CHECKBOX'">                              <div *ngFor="let answers of ansMap.get(questobeShown.questionId)">   
+                              <input                              
+                              (change)="open(content,answers.answerOptionsId,$event,2)" type="checkbox" class="form-check-input"
+                              [checked]="getAnswersArr().includes(answers.answerOptionsId)">
+                              {{answers.answerText}}                                                 
+                        </div>
+                    </div>            
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+            </div>
+        </ng-template>
+      <!--</div>-->
+                         
+</div>
+
+<!--<div *ngFor="let answers of answersoptions;">
+  <div class="row">
+    <div class="col-sm-4" >
+      <div class="form-check">
+        <label class="form-check-label" >
+                <input 
+                  (click)="selectedPopUpQuestion(answers.answerOptionsId)" type="checkbox" class="form-check-input"
+                > {{answers.answerText}}         
+          </label>
+      </div>
+    </div>
+  </div>-->
+  <!--<div class="row" *ngIf=" i >=4 && i<7">
+    <div class="col-sm-4">
+      <div class="form-check">
+        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input"> PHP          
+                          </label>
+      </div>
+    </div>
+  </div>-->
+  <!--<div class="row" *ngIf=" i >= 7">
+    <div class="col-sm-4">
+      <div class="form-check">
+        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input"> AngularJS          
+                          </label>
+      </div>
+    </div>
+  </div>-->
+
+
+
+<!--</div>-->

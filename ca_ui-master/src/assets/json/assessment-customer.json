@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Pre - Assessment",
+    "description": "Initial phase where you collect details and preferences about customer"
+  },
+  {
+    "title": "Create Assessment",
+    "description": "Launch assessment for customer and they need to login to answer"
+  },
+  {
+    "title": "Recommendation",
+    "description": "Detailed analysis based on information shared by the customer"
+  }
+]

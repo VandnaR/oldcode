@@ -1,0 +1,47 @@
+<div>   
+    <select class="form-control" (change)="open(content,$event.target.value,1)">    
+        <option>Select an option</option>
+        
+        <option
+            *ngFor="let answers of answersoptions"                 
+            [value]="answers.answerOptionsId"
+            [selected]="getAnswersArr().includes(answers.answerOptionsId)"                                  
+            >
+            {{answers.answerText}}                                   
+        </option>                                   
+    </select>                       
+    <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <!--<h4 class="modal-title">Modal title</h4>-->
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label class="form-check-label">{{questobeShown.question}}</label>
+                    </div>
+                    <div class="col-sm-4" *ngIf="questobeShown.answerType == 'SINGLE_SELECT'">
+                         <select class="form-control" (change)="open(content,$event.target.value,2)">                            
+                                <option>Select an option</option>
+                                <option *ngFor="let answers of ansMap.get(questobeShown.questionId)"
+                                [value]="answers.answerOptionsId"
+                                [selected]="getAnswersArr().includes(answers.answerOptionsId)"
+                                >{{answers.answerText}} </option>                                              
+                          </select>                                         
+                    </div>    
+                    <div class="col-sm-4" *ngIf="questobeShown.answerType == 'MULTI_SELECT_CHECKBOX'">                              <div *ngFor="let answers of ansMap.get(questobeShown.questionId)">   
+                              <input                              
+                              (change)="open(content,answers.answerOptionsId,$event,2)" type="checkbox" class="form-check-input"
+                              [checked]="getAnswersArr().includes(answers.answerOptionsId)"
+                              >{{answers.answerText}}                                                 
+                        </div>
+                    </div>            
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+            </div>
+        </ng-template>
+</div>

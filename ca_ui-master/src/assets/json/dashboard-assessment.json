@@ -1,0 +1,2279 @@
+{
+  "assessment": [{
+      "id": 1,
+      "name": "Yet to Start",
+      "value": 30
+    },
+    {
+      "id": 2,
+      "name": "Completed",
+      "value": 100
+    },
+    {
+      "id": 3,
+      "name": "In Progress",
+      "value": 50
+    }
+  ],
+  "rLane": [{
+      "id": 1,
+      "name": "Rehost",
+      "value": 50
+    },
+    {
+      "id": 2,
+      "name": "Refactor",
+      "value": 100
+    },
+    {
+      "id": 3,
+      "name": "Replatform",
+      "value": 300
+    }
+  ],
+  "csp": [{
+      "id": 1,
+      "name": "AWS",
+      "value": 200
+    },
+    {
+      "id": 2,
+      "name": "Azure",
+      "value": 500
+    },
+    {
+      "id": 3,
+      "name": "GCP",
+      "value": 300
+    }
+  ],
+  "costOfOwnership": {
+    "name": "Current Cost",
+    "value": 10000,
+    "data": [{
+        "id": 1,
+        "name": "Recommendation 1",
+        "value": 10500
+      },
+      {
+        "id": 2,
+        "name": "Recommendation 2",
+        "value": 11500
+      },
+      {
+        "id": 3,
+        "name": "Recommendation 3",
+        "value": 12500
+      }
+    ]
+  },
+  "moveGroup": [
+    {
+      "name": "Move Gr. 1",
+      "data": [
+        {
+          "name": "LOB 1",
+          "value": 15
+        },
+        {
+          "name": "LOB 2",
+          "value": 12.5
+        },
+        {
+          "name": "LOB 3",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "name": "Move Gr. 2",
+      "data": [
+        {
+          "name": "LOB 1",
+          "value": 13
+        },
+        {
+          "name": "LOB 2",
+          "value": 9
+        },
+        {
+          "name": "LOB 3",
+          "value": 12
+        }
+      ]
+    },
+    {
+      "name": "Move Gr. 3",
+      "data": [
+        {
+          "name": "LOB 1",
+          "value": 2
+        },
+        {
+          "name": "LOB 2",
+          "value": 5
+        },
+        {
+          "name": "LOB 3",
+          "value": 7
+        }
+      ]
+    }
+  ],
+  "assessmentDetails": {
+    "title": "Application Assessment Details",
+    "category": "Application Assessment Details",
+    "data": [
+      {
+        "id": 1,
+        "applicationName": "OpenCart",
+        "applicationType": "Public App",
+        "migrationRLane": "Refactor",
+        "recommendedCloudPlatform": "AWS",
+        "recommendation": "Recommendation text goes here",
+        "data": {
+          "rLaneScoring": [
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 600
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 470
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 800
+            },
+            {
+              "axis": "Azure",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 720
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 620
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 850
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 500
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 610
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            }
+          ],
+          "quantitativeAnalysis": {
+            "applicationsType": {
+              "name": "COTS",
+              "compatability": "Yes"
+            },
+            "softwarePlatforms": {
+              "name": "Share Point 2008",
+              "compatability": "No"
+            },
+            "databasePlatform": {
+              "name": "MS SQL Server 2008",
+              "compatability": "No"
+            },
+            "acmePlatform": {
+              "name": "Lorem Ipsum Dolor",
+              "compatability": "No"
+            }
+          },
+          "host": {
+            "operatingSystem": {
+              "name": "Windows Server 2008",
+              "compatability": "Yes"
+            },
+            "virtualAndHypervisor": {
+              "name": "Physical",
+              "compatability": "No"
+            },
+            "osArchicture": {
+              "name": "32 bit",
+              "compatability": "No"
+            },
+            "acmeHost": {
+              "name": "Lorem ipsum",
+              "compatability": "No"
+            }
+          },
+          "rules": [{
+              "id": 1,
+              "rule": "Queue Based Loading Leveling",
+              "criticality": "high",
+              "type": "Technology Rule",
+              "occurence": ""
+            },
+            {
+              "id": 2,
+              "rule": "User Server Less Architecture",
+              "criticality": "medium",
+              "type": "Architecture Rule",
+              "occurence": 0
+            },
+            {
+              "id": 3,
+              "rule": "Separate Read Operations",
+              "criticality": "high",
+              "type": "Non - Functional Rule",
+              "occurence": ""
+            },
+            {
+              "id": 4,
+              "rule": "Data Encryption",
+              "criticality": "medium",
+              "type": "Technology Rule",
+              "occurence": 1
+            }
+          ],
+          "technologyScores": [{
+              "id": 1,
+              "score": 90,
+              "rules": "Use server less architecture",
+              "cloudReadyScan": "Question: Server",
+              "occurence": "AWS Lambada or AWS ECS"
+            },
+            {
+              "id": 2,
+              "score": 90,
+              "rules": "",
+              "cloudReadyScan": "Load issues",
+              "occurence": ""
+            },
+            {
+              "id": 3,
+              "score": 10,
+              "rules": "Data encryption",
+              "cloudReadyScan": "Data is not encrypted in DB",
+              "occurence": "AWS KMS"
+            }
+          ]
+        }
+      },
+      {
+        "id": 2,
+        "applicationName": "Collaborative Platform - Share Point",
+        "applicationType": "Public App",
+        "migrationRLane": "Refactor",
+        "recommendedCloudPlatform": "AWS",
+        "recommendation": "Recommendation text goes here",
+        "data": {
+          "rLaneScoring": [
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 600
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 470
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 800
+            },
+            {
+              "axis": "Azure",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 720
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 620
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 850
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 500
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 610
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            }
+          ],
+          "quantitativeAnalysis": {
+            "applicationsType": {
+              "name": "COTS",
+              "compatability": "Yes"
+            },
+            "softwarePlatforms": {
+              "name": "Share Point 2008",
+              "compatability": "No"
+            },
+            "databasePlatform": {
+              "name": "MS SQL Server 2008",
+              "compatability": "No"
+            },
+            "acmePlatform": {
+              "name": "Lorem Ipsum Dolor",
+              "compatability": "No"
+            }
+          },
+          "host": {
+            "operatingSystem": {
+              "name": "Windows Server 2008",
+              "compatability": "Yes"
+            },
+            "virtualAndHypervisor": {
+              "name": "Physical",
+              "compatability": "No"
+            },
+            "osArchicture": {
+              "name": "32 bit",
+              "compatability": "No"
+            },
+            "acmeHost": {
+              "name": "Lorem ipsum",
+              "compatability": "No"
+            }
+          },
+          "rules": [{
+              "id": 1,
+              "rule": "Queue Based Loading Leveling",
+              "criticality": "high",
+              "type": "Technology Rule",
+              "occurence": ""
+            },
+            {
+              "id": 2,
+              "rule": "User Server Less Architecture",
+              "criticality": "medium",
+              "type": "Architecture Rule",
+              "occurence": 0
+            },
+            {
+              "id": 3,
+              "rule": "Separate Read Operations",
+              "criticality": "high",
+              "type": "Non - Functional Rule",
+              "occurence": ""
+            },
+            {
+              "id": 4,
+              "rule": "Data Encryption",
+              "criticality": "medium",
+              "type": "Technology Rule",
+              "occurence": 1
+            }
+          ],
+          "technologyScores": [{
+              "id": 1,
+              "score": 90,
+              "rules": "Use server less architecture",
+              "cloudReadyScan": "Question: Server",
+              "occurence": "AWS Lambada or AWS ECS"
+            },
+            {
+              "id": 2,
+              "score": 90,
+              "rules": "",
+              "cloudReadyScan": "Load issues",
+              "occurence": ""
+            },
+            {
+              "id": 3,
+              "score": 10,
+              "rules": "Data encryption",
+              "cloudReadyScan": "Data is not encrypted in DB",
+              "occurence": "AWS KMS"
+            }
+          ]
+        }
+      },
+      {
+        "id": 3,
+        "applicationName": "BroadLeaf",
+        "applicationType": "Public App",
+        "migrationRLane": "Replatform",
+        "recommendedCloudPlatform": "AWS",
+        "recommendation": "Recommendation text goes here",
+        "data": {
+          "rLaneScoring": [
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 600
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 470
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 800
+            },
+            {
+              "axis": "Azure",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 720
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 620
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 850
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 500
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 610
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            }
+          ],
+          "quantitativeAnalysis": {
+            "applicationsType": {
+              "name": "COTS",
+              "compatability": "Yes"
+            },
+            "softwarePlatforms": {
+              "name": "Share Point 2008",
+              "compatability": "No"
+            },
+            "databasePlatform": {
+              "name": "MS SQL Server 2008",
+              "compatability": "No"
+            },
+            "acmePlatform": {
+              "name": "Lorem Ipsum Dolor",
+              "compatability": "No"
+            }
+          },
+          "host": {
+            "operatingSystem": {
+              "name": "Windows Server 2008",
+              "compatability": "Yes"
+            },
+            "virtualAndHypervisor": {
+              "name": "Physical",
+              "compatability": "No"
+            },
+            "osArchicture": {
+              "name": "32 bit",
+              "compatability": "No"
+            },
+            "acmeHost": {
+              "name": "Lorem ipsum",
+              "compatability": "No"
+            }
+          },
+          "rules": [{
+              "id": 1,
+              "rule": "Queue Based Loading Leveling",
+              "criticality": "high",
+              "type": "Technology Rule",
+              "occurence": ""
+            },
+            {
+              "id": 2,
+              "rule": "User Server Less Architecture",
+              "criticality": "medium",
+              "type": "Architecture Rule",
+              "occurence": 0
+            },
+            {
+              "id": 3,
+              "rule": "Separate Read Operations",
+              "criticality": "high",
+              "type": "Non - Functional Rule",
+              "occurence": ""
+            },
+            {
+              "id": 4,
+              "rule": "Data Encryption",
+              "criticality": "medium",
+              "type": "Technology Rule",
+              "occurence": 1
+            }
+          ],
+          "technologyScores": [{
+              "id": 1,
+              "score": 90,
+              "rules": "Use server less architecture",
+              "cloudReadyScan": "Question: Server",
+              "occurence": "AWS Lambada or AWS ECS"
+            },
+            {
+              "id": 2,
+              "score": 90,
+              "rules": "",
+              "cloudReadyScan": "Load issues",
+              "occurence": ""
+            },
+            {
+              "id": 3,
+              "score": 10,
+              "rules": "Data encryption",
+              "cloudReadyScan": "Data is not encrypted in DB",
+              "occurence": "AWS KMS"
+            }
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "applicationName": "easyTravelMobile",
+        "applicationType": "Public App",
+        "migrationRLane": "Refactor",
+        "recommendedCloudPlatform": "AWS",
+        "recommendation": "Recommendation text goes here",
+        "data": {
+          "rLaneScoring": [
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 600
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 470
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 800
+            },
+            {
+              "axis": "Azure",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 720
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 620
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 850
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 500
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 610
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            }
+          ],
+          "quantitativeAnalysis": {
+            "applicationsType": {
+              "name": "COTS",
+              "compatability": "Yes"
+            },
+            "softwarePlatforms": {
+              "name": "Share Point 2008",
+              "compatability": "No"
+            },
+            "databasePlatform": {
+              "name": "MS SQL Server 2008",
+              "compatability": "No"
+            },
+            "acmePlatform": {
+              "name": "Lorem Ipsum Dolor",
+              "compatability": "No"
+            }
+          },
+          "host": {
+            "operatingSystem": {
+              "name": "Windows Server 2008",
+              "compatability": "Yes"
+            },
+            "virtualAndHypervisor": {
+              "name": "Physical",
+              "compatability": "No"
+            },
+            "osArchicture": {
+              "name": "32 bit",
+              "compatability": "No"
+            },
+            "acmeHost": {
+              "name": "Lorem ipsum",
+              "compatability": "No"
+            }
+          },
+          "rules": [{
+              "id": 1,
+              "rule": "Queue Based Loading Leveling",
+              "criticality": "high",
+              "type": "Technology Rule",
+              "occurence": ""
+            },
+            {
+              "id": 2,
+              "rule": "User Server Less Architecture",
+              "criticality": "medium",
+              "type": "Architecture Rule",
+              "occurence": 0
+            },
+            {
+              "id": 3,
+              "rule": "Separate Read Operations",
+              "criticality": "high",
+              "type": "Non - Functional Rule",
+              "occurence": ""
+            },
+            {
+              "id": 4,
+              "rule": "Data Encryption",
+              "criticality": "medium",
+              "type": "Technology Rule",
+              "occurence": 1
+            }
+          ],
+          "technologyScores": [{
+              "id": 1,
+              "score": 90,
+              "rules": "Use server less architecture",
+              "cloudReadyScan": "Question: Server",
+              "occurence": "AWS Lambada or AWS ECS"
+            },
+            {
+              "id": 2,
+              "score": 90,
+              "rules": "",
+              "cloudReadyScan": "Load issues",
+              "occurence": ""
+            },
+            {
+              "id": 3,
+              "score": 10,
+              "rules": "Data encryption",
+              "cloudReadyScan": "Data is not encrypted in DB",
+              "occurence": "AWS KMS"
+            }
+          ]
+        }
+      },
+      {
+        "id": 5,
+        "applicationName": "Acme Application",
+        "applicationType": "Public App",
+        "migrationRLane": "Replatform",
+        "recommendedCloudPlatform": "AWS",
+        "recommendation": "Recommendation text goes here",
+        "data": {
+          "rLaneScoring": [
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 600
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 470
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 800
+            },
+            {
+              "axis": "Azure",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 720
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 620
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 850
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 500
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 610
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            }
+          ],
+          "quantitativeAnalysis": {
+            "applicationsType": {
+              "name": "COTS",
+              "compatability": "Yes"
+            },
+            "softwarePlatforms": {
+              "name": "Share Point 2008",
+              "compatability": "No"
+            },
+            "databasePlatform": {
+              "name": "MS SQL Server 2008",
+              "compatability": "No"
+            },
+            "acmePlatform": {
+              "name": "Lorem Ipsum Dolor",
+              "compatability": "No"
+            }
+          },
+          "host": {
+            "operatingSystem": {
+              "name": "Windows Server 2008",
+              "compatability": "Yes"
+            },
+            "virtualAndHypervisor": {
+              "name": "Physical",
+              "compatability": "No"
+            },
+            "osArchicture": {
+              "name": "32 bit",
+              "compatability": "No"
+            },
+            "acmeHost": {
+              "name": "Lorem ipsum",
+              "compatability": "No"
+            }
+          },
+          "rules": [{
+              "id": 1,
+              "rule": "Queue Based Loading Leveling",
+              "criticality": "high",
+              "type": "Technology Rule",
+              "occurence": ""
+            },
+            {
+              "id": 2,
+              "rule": "User Server Less Architecture",
+              "criticality": "medium",
+              "type": "Architecture Rule",
+              "occurence": 0
+            },
+            {
+              "id": 3,
+              "rule": "Separate Read Operations",
+              "criticality": "high",
+              "type": "Non - Functional Rule",
+              "occurence": ""
+            },
+            {
+              "id": 4,
+              "rule": "Data Encryption",
+              "criticality": "medium",
+              "type": "Technology Rule",
+              "occurence": 1
+            }
+          ],
+          "technologyScores": [{
+              "id": 1,
+              "score": 90,
+              "rules": "Use server less architecture",
+              "cloudReadyScan": "Question: Server",
+              "occurence": "AWS Lambada or AWS ECS"
+            },
+            {
+              "id": 2,
+              "score": 90,
+              "rules": "",
+              "cloudReadyScan": "Load issues",
+              "occurence": ""
+            },
+            {
+              "id": 3,
+              "score": 10,
+              "rules": "Data encryption",
+              "cloudReadyScan": "Data is not encrypted in DB",
+              "occurence": "AWS KMS"
+            }
+          ]
+        }
+      },
+      {
+        "id": 6,
+        "applicationName": "OpenCart",
+        "applicationType": "Public App",
+        "migrationRLane": "Refactor",
+        "recommendedCloudPlatform": "AWS",
+        "recommendation": "Recommendation text goes here",
+        "data": {
+          "rLaneScoring": [
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 600
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 470
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 800
+            },
+            {
+              "axis": "Azure",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 720
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 620
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 850
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 500
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 610
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            }
+          ],
+          "quantitativeAnalysis": {
+            "applicationsType": {
+              "name": "COTS",
+              "compatability": "Yes"
+            },
+            "softwarePlatforms": {
+              "name": "Share Point 2008",
+              "compatability": "No"
+            },
+            "databasePlatform": {
+              "name": "MS SQL Server 2008",
+              "compatability": "No"
+            },
+            "acmePlatform": {
+              "name": "Lorem Ipsum Dolor",
+              "compatability": "No"
+            }
+          },
+          "host": {
+            "operatingSystem": {
+              "name": "Windows Server 2008",
+              "compatability": "Yes"
+            },
+            "virtualAndHypervisor": {
+              "name": "Physical",
+              "compatability": "No"
+            },
+            "osArchicture": {
+              "name": "32 bit",
+              "compatability": "No"
+            },
+            "acmeHost": {
+              "name": "Lorem ipsum",
+              "compatability": "No"
+            }
+          },
+          "rules": [{
+              "id": 1,
+              "rule": "Queue Based Loading Leveling",
+              "criticality": "high",
+              "type": "Technology Rule",
+              "occurence": ""
+            },
+            {
+              "id": 2,
+              "rule": "User Server Less Architecture",
+              "criticality": "medium",
+              "type": "Architecture Rule",
+              "occurence": 0
+            },
+            {
+              "id": 3,
+              "rule": "Separate Read Operations",
+              "criticality": "high",
+              "type": "Non - Functional Rule",
+              "occurence": ""
+            },
+            {
+              "id": 4,
+              "rule": "Data Encryption",
+              "criticality": "medium",
+              "type": "Technology Rule",
+              "occurence": 1
+            }
+          ],
+          "technologyScores": [{
+              "id": 1,
+              "score": 90,
+              "rules": "Use server less architecture",
+              "cloudReadyScan": "Question: Server",
+              "occurence": "AWS Lambada or AWS ECS"
+            },
+            {
+              "id": 2,
+              "score": 90,
+              "rules": "",
+              "cloudReadyScan": "Load issues",
+              "occurence": ""
+            },
+            {
+              "id": 3,
+              "score": 10,
+              "rules": "Data encryption",
+              "cloudReadyScan": "Data is not encrypted in DB",
+              "occurence": "AWS KMS"
+            }
+          ]
+        }
+      },
+      {
+        "id": 7,
+        "applicationName": "Collaborative Platform - Share Point",
+        "applicationType": "Public App",
+        "migrationRLane": "Refactor",
+        "recommendedCloudPlatform": "AWS",
+        "recommendation": "Recommendation text goes here",
+        "data": {
+          "rLaneScoring": [
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 600
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 470
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 800
+            },
+            {
+              "axis": "Azure",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 720
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 620
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 850
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 500
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 610
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            }
+          ],
+          "quantitativeAnalysis": {
+            "applicationsType": {
+              "name": "COTS",
+              "compatability": "Yes"
+            },
+            "softwarePlatforms": {
+              "name": "Share Point 2008",
+              "compatability": "No"
+            },
+            "databasePlatform": {
+              "name": "MS SQL Server 2008",
+              "compatability": "No"
+            },
+            "acmePlatform": {
+              "name": "Lorem Ipsum Dolor",
+              "compatability": "No"
+            }
+          },
+          "host": {
+            "operatingSystem": {
+              "name": "Windows Server 2008",
+              "compatability": "Yes"
+            },
+            "virtualAndHypervisor": {
+              "name": "Physical",
+              "compatability": "No"
+            },
+            "osArchicture": {
+              "name": "32 bit",
+              "compatability": "No"
+            },
+            "acmeHost": {
+              "name": "Lorem ipsum",
+              "compatability": "No"
+            }
+          },
+          "rules": [{
+              "id": 1,
+              "rule": "Queue Based Loading Leveling",
+              "criticality": "high",
+              "type": "Technology Rule",
+              "occurence": ""
+            },
+            {
+              "id": 2,
+              "rule": "User Server Less Architecture",
+              "criticality": "medium",
+              "type": "Architecture Rule",
+              "occurence": 0
+            },
+            {
+              "id": 3,
+              "rule": "Separate Read Operations",
+              "criticality": "high",
+              "type": "Non - Functional Rule",
+              "occurence": ""
+            },
+            {
+              "id": 4,
+              "rule": "Data Encryption",
+              "criticality": "medium",
+              "type": "Technology Rule",
+              "occurence": 1
+            }
+          ],
+          "technologyScores": [{
+              "id": 1,
+              "score": 90,
+              "rules": "Use server less architecture",
+              "cloudReadyScan": "Question: Server",
+              "occurence": "AWS Lambada or AWS ECS"
+            },
+            {
+              "id": 2,
+              "score": 90,
+              "rules": "",
+              "cloudReadyScan": "Load issues",
+              "occurence": ""
+            },
+            {
+              "id": 3,
+              "score": 10,
+              "rules": "Data encryption",
+              "cloudReadyScan": "Data is not encrypted in DB",
+              "occurence": "AWS KMS"
+            }
+          ]
+        }
+      },
+      {
+        "id": 8,
+        "applicationName": "BroadLeaf",
+        "applicationType": "Public App",
+        "migrationRLane": "Replatform",
+        "recommendedCloudPlatform": "AWS",
+        "recommendation": "Recommendation text goes here",
+        "data": {
+          "rLaneScoring": [
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 600
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 470
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 800
+            },
+            {
+              "axis": "Azure",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 720
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 620
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 850
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 500
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 610
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            }
+          ],
+          "quantitativeAnalysis": {
+            "applicationsType": {
+              "name": "COTS",
+              "compatability": "Yes"
+            },
+            "softwarePlatforms": {
+              "name": "Share Point 2008",
+              "compatability": "No"
+            },
+            "databasePlatform": {
+              "name": "MS SQL Server 2008",
+              "compatability": "No"
+            },
+            "acmePlatform": {
+              "name": "Lorem Ipsum Dolor",
+              "compatability": "No"
+            }
+          },
+          "host": {
+            "operatingSystem": {
+              "name": "Windows Server 2008",
+              "compatability": "Yes"
+            },
+            "virtualAndHypervisor": {
+              "name": "Physical",
+              "compatability": "No"
+            },
+            "osArchicture": {
+              "name": "32 bit",
+              "compatability": "No"
+            },
+            "acmeHost": {
+              "name": "Lorem ipsum",
+              "compatability": "No"
+            }
+          },
+          "rules": [{
+              "id": 1,
+              "rule": "Queue Based Loading Leveling",
+              "criticality": "high",
+              "type": "Technology Rule",
+              "occurence": ""
+            },
+            {
+              "id": 2,
+              "rule": "User Server Less Architecture",
+              "criticality": "medium",
+              "type": "Architecture Rule",
+              "occurence": 0
+            },
+            {
+              "id": 3,
+              "rule": "Separate Read Operations",
+              "criticality": "high",
+              "type": "Non - Functional Rule",
+              "occurence": ""
+            },
+            {
+              "id": 4,
+              "rule": "Data Encryption",
+              "criticality": "medium",
+              "type": "Technology Rule",
+              "occurence": 1
+            }
+          ],
+          "technologyScores": [{
+              "id": 1,
+              "score": 90,
+              "rules": "Use server less architecture",
+              "cloudReadyScan": "Question: Server",
+              "occurence": "AWS Lambada or AWS ECS"
+            },
+            {
+              "id": 2,
+              "score": 90,
+              "rules": "",
+              "cloudReadyScan": "Load issues",
+              "occurence": ""
+            },
+            {
+              "id": 3,
+              "score": 10,
+              "rules": "Data encryption",
+              "cloudReadyScan": "Data is not encrypted in DB",
+              "occurence": "AWS KMS"
+            }
+          ]
+        }
+      },
+      {
+        "id": 9,
+        "applicationName": "easyTravelMobile",
+        "applicationType": "Public App",
+        "migrationRLane": "Refactor",
+        "recommendedCloudPlatform": "AWS",
+        "recommendation": "Recommendation text goes here",
+        "data": {
+          "rLaneScoring": [
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 600
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 470
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 800
+            },
+            {
+              "axis": "Azure",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 720
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 620
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 850
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 500
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 610
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            }
+          ],
+          "quantitativeAnalysis": {
+            "applicationsType": {
+              "name": "COTS",
+              "compatability": "Yes"
+            },
+            "softwarePlatforms": {
+              "name": "Share Point 2008",
+              "compatability": "No"
+            },
+            "databasePlatform": {
+              "name": "MS SQL Server 2008",
+              "compatability": "No"
+            },
+            "acmePlatform": {
+              "name": "Lorem Ipsum Dolor",
+              "compatability": "No"
+            }
+          },
+          "host": {
+            "operatingSystem": {
+              "name": "Windows Server 2008",
+              "compatability": "Yes"
+            },
+            "virtualAndHypervisor": {
+              "name": "Physical",
+              "compatability": "No"
+            },
+            "osArchicture": {
+              "name": "32 bit",
+              "compatability": "No"
+            },
+            "acmeHost": {
+              "name": "Lorem ipsum",
+              "compatability": "No"
+            }
+          },
+          "rules": [{
+              "id": 1,
+              "rule": "Queue Based Loading Leveling",
+              "criticality": "high",
+              "type": "Technology Rule",
+              "occurence": ""
+            },
+            {
+              "id": 2,
+              "rule": "User Server Less Architecture",
+              "criticality": "medium",
+              "type": "Architecture Rule",
+              "occurence": 0
+            },
+            {
+              "id": 3,
+              "rule": "Separate Read Operations",
+              "criticality": "high",
+              "type": "Non - Functional Rule",
+              "occurence": ""
+            },
+            {
+              "id": 4,
+              "rule": "Data Encryption",
+              "criticality": "medium",
+              "type": "Technology Rule",
+              "occurence": 1
+            }
+          ],
+          "technologyScores": [{
+              "id": 1,
+              "score": 90,
+              "rules": "Use server less architecture",
+              "cloudReadyScan": "Question: Server",
+              "occurence": "AWS Lambada or AWS ECS"
+            },
+            {
+              "id": 2,
+              "score": 90,
+              "rules": "",
+              "cloudReadyScan": "Load issues",
+              "occurence": ""
+            },
+            {
+              "id": 3,
+              "score": 10,
+              "rules": "Data encryption",
+              "cloudReadyScan": "Data is not encrypted in DB",
+              "occurence": "AWS KMS"
+            }
+          ]
+        }
+      },
+      {
+        "id": 10,
+        "applicationName": "Acme Application",
+        "applicationType": "Public App",
+        "migrationRLane": "Replatform",
+        "recommendedCloudPlatform": "AWS",
+        "recommendation": "Recommendation text goes here",
+        "data": {
+          "rLaneScoring": [
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 600
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 470
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 800
+            },
+            {
+              "axis": "Azure",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 720
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 620
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 750
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 850
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 450
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 500
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 610
+            },
+            {
+              "axis": "Lorem ipsum",
+              "value": 700
+            }
+          ],
+          "quantitativeAnalysis": {
+            "applicationsType": {
+              "name": "COTS",
+              "compatability": "Yes"
+            },
+            "softwarePlatforms": {
+              "name": "Share Point 2008",
+              "compatability": "No"
+            },
+            "databasePlatform": {
+              "name": "MS SQL Server 2008",
+              "compatability": "No"
+            },
+            "acmePlatform": {
+              "name": "Lorem Ipsum Dolor",
+              "compatability": "No"
+            }
+          },
+          "host": {
+            "operatingSystem": {
+              "name": "Windows Server 2008",
+              "compatability": "Yes"
+            },
+            "virtualAndHypervisor": {
+              "name": "Physical",
+              "compatability": "No"
+            },
+            "osArchicture": {
+              "name": "32 bit",
+              "compatability": "No"
+            },
+            "acmeHost": {
+              "name": "Lorem ipsum",
+              "compatability": "No"
+            }
+          },
+          "rules": [{
+              "id": 1,
+              "rule": "Queue Based Loading Leveling",
+              "criticality": "high",
+              "type": "Technology Rule",
+              "occurence": ""
+            },
+            {
+              "id": 2,
+              "rule": "User Server Less Architecture",
+              "criticality": "medium",
+              "type": "Architecture Rule",
+              "occurence": 0
+            },
+            {
+              "id": 3,
+              "rule": "Separate Read Operations",
+              "criticality": "high",
+              "type": "Non - Functional Rule",
+              "occurence": ""
+            },
+            {
+              "id": 4,
+              "rule": "Data Encryption",
+              "criticality": "medium",
+              "type": "Technology Rule",
+              "occurence": 1
+            }
+          ],
+          "technologyScores": [{
+              "id": 1,
+              "score": 90,
+              "rules": "Use server less architecture",
+              "cloudReadyScan": "Question: Server",
+              "occurence": "AWS Lambada or AWS ECS"
+            },
+            {
+              "id": 2,
+              "score": 90,
+              "rules": "",
+              "cloudReadyScan": "Load issues",
+              "occurence": ""
+            },
+            {
+              "id": 3,
+              "score": 10,
+              "rules": "Data encryption",
+              "cloudReadyScan": "Data is not encrypted in DB",
+              "occurence": "AWS KMS"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "moveGroupReport": {
+    "title": "Move Group Report",
+    "category": "Move Group Report",
+    "data": [{
+        "id": 1,
+        "name": "Acme Move Group 1",
+        "data": [{
+            "id": 1,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 2,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.7",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": "Lorem ipsum"
+          },
+          {
+            "id": 3,
+            "applicationName": "Share Point Server",
+            "host": "54.91.154.186",
+            "dataCenter": "GEOLOC_SITE",
+            "lob": "Billing",
+            "rlane": "Replatform",
+            "os": "WINDOWS",
+            "technolory": "SharePoint",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Acme Move Group 2",
+        "data": [{
+            "id": 1,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 2,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.7",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": "Lorem ipsum"
+          },
+          {
+            "id": 3,
+            "applicationName": "Share Point Server",
+            "host": "54.91.154.186",
+            "dataCenter": "GEOLOC_SITE",
+            "lob": "Billing",
+            "rlane": "Replatform",
+            "os": "WINDOWS",
+            "technolory": "SharePoint",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 4,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 5,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Acme Move Group 3",
+        "data": [{
+            "id": 1,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 2,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.7",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": "Lorem ipsum"
+          },
+          {
+            "id": 3,
+            "applicationName": "Share Point Server",
+            "host": "54.91.154.186",
+            "dataCenter": "GEOLOC_SITE",
+            "lob": "Billing",
+            "rlane": "Replatform",
+            "os": "WINDOWS",
+            "technolory": "SharePoint",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 4,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 5,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 6,
+            "applicationName": "Share Point Server",
+            "host": "54.91.154.186",
+            "dataCenter": "GEOLOC_SITE",
+            "lob": "Billing",
+            "rlane": "Replatform",
+            "os": "WINDOWS",
+            "technolory": "SharePoint",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 7,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Acme Move Group 4",
+        "data": [{
+            "id": 1,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 2,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.7",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": "Lorem ipsum"
+          },
+          {
+            "id": 3,
+            "applicationName": "Share Point Server",
+            "host": "54.91.154.186",
+            "dataCenter": "GEOLOC_SITE",
+            "lob": "Billing",
+            "rlane": "Replatform",
+            "os": "WINDOWS",
+            "technolory": "SharePoint",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 4,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 5,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Acme Move Group 5",
+        "data": [{
+            "id": 1,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 2,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.7",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": "Lorem ipsum"
+          },
+          {
+            "id": 3,
+            "applicationName": "Share Point Server",
+            "host": "54.91.154.186",
+            "dataCenter": "GEOLOC_SITE",
+            "lob": "Billing",
+            "rlane": "Replatform",
+            "os": "WINDOWS",
+            "technolory": "SharePoint",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 4,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 5,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 6,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 7,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.7",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": "Lorem ipsum"
+          },
+          {
+            "id": 8,
+            "applicationName": "Share Point Server",
+            "host": "54.91.154.186",
+            "dataCenter": "GEOLOC_SITE",
+            "lob": "Billing",
+            "rlane": "Replatform",
+            "os": "WINDOWS",
+            "technolory": "SharePoint",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 9,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          },
+          {
+            "id": 10,
+            "applicationName": "BroadLeaf",
+            "host": "10.0.3.13",
+            "dataCenter": "AWS_AVAILABILITY_ZOE",
+            "lob": "Billing",
+            "rlane": "Refactor",
+            "os": "LINUX",
+            "technolory": "JAVA_TOMCAT",
+            "bitnessAndOsArchitecture": "64bit, X86",
+            "physicalAndVirtual": "64bit, X86",
+            "criticality": "64bit, X86",
+            "architecture": "64bit, X86",
+            "appDep": ""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Yet to Start",
+    "value": 30
+  },
+  {
+    "id": 2,
+    "name": "Completed",
+    "value": 100
+  },
+  {
+    "id": 3,
+    "name": "In Progress",
+    "value": 50
+  }
+]

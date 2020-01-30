@@ -1,0 +1,113 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Deployed Applications'" [icon]="'fa-bar-chart-o'"></app-page-header>
+          <div class="row" style="margin:20px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label">Environment List: </label>
+            </div>
+            <div class="col-sm-4" align="left">
+              <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="getClusters($event.target.value)">                            
+                                    <option value="0">Select Provider</option>
+                                    <option value="Google Cloud">Google Cloud</option>
+                                    <option value="AWS">AWS</option>
+                                    <option value="Azure">Azure</option>
+                                    <option value="Openshift">Openshift</option>
+                                    <!-- <option value="PCF">PCF</option> -->
+                                    <!-- <option                                           
+                                      *ngFor="let project of projects"
+                                      [value]="project.projectId"
+                                    >{{project.projectName}}</option>  -->
+                            </select>
+            </div>
+            </div>
+            <!--  -->
+            <div class="row" style="margin:20px 0px 10px 0px" [hidden]="showOcProjects">
+                <div class="col-sm-3">
+                  <label class="form-check-label">Clusters: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                  <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="showDeployedApps($event.target.value)" #selectedCluster>
+                                        <option value="0">Select a Cluster</option>
+                                        <!--<option>< New ></option>-->
+                                        <option                                           
+                                          *ngFor="let array of clusters"
+                                          [value]="array.name"
+                                        >{{array.name}}</option> 
+                                </select>
+                </div>
+            </div>
+             <div class="row" style="margin:20px 0px 10px 0px" [hidden]="!showOcProjects">
+                <div class="col-sm-3">
+                  <label class="form-check-label">OCP Projects: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                  <select class="form-control" id="ddl_ocpprojects" name="ddl_ocpprojects" (change)="showDeployedApps($event.target.value)" #selectedOCPProject>
+                                        <option value="0">Select a project</option>
+                                        <!--<option>< New ></option>-->
+                                        <option                                           
+                                          *ngFor="let val of oCPProjects"
+                                          [value]="val.projectName"
+                                        >{{val.projectName}}</option> 
+                                </select>
+                </div>
+            </div>
+            <div class="row" *ngIf="showDeployedApp">
+              <div class="col-sm-12">
+                  <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <!-- <th>Name</th>
+                          <th>Type</th>
+                          <th>Cluster IP</th>
+                          <th>External IP</th>
+                          <th>Port(s)</th>
+                          <th>Age</th> -->
+                          <th>{{heading.name}}</th>
+                          <th>{{heading.type}}</th>
+                          <th>{{heading.clusterIp}}</th>
+                          <th>{{heading.externalIp}}</th>
+                          <th>{{heading.ports}}</th>
+                          <th>{{heading.age}}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let array of GCPApps">
+                            <td>{{array.name}}</td>
+                            <td>{{array.type}}</td>
+                            <td>{{array.clusterIp}}</td>
+                            <td><a href="http://{{array.externalIp}}:{{array.ports | slice:0:4}}" target="_blank">http://{{array.externalIp}}:{{array.ports | slice:0:4}}</a></td>
+                            <td>{{array.ports}}</td>
+                            <td>{{array.age}}</td>
+                            
+                          
+                            <!-- <td>shopizer</td>
+                          <td>LoadBalancer</td>
+                          <td>10.31.243.111</td>
+                          <td><a href="http://146.148.79.61:8080">http://146.148.79.61:8080</a></td>
+                          <td>8080:31950/TCP</td>
+                          <td>1m</td> -->
+                        </tr>
+                      </tbody>
+                  </table>
+              </div>
+            </div>            
+            
+            <div class="row" *ngIf="showDeployedOCPApp">
+                <div class="col-sm-12">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Host</th>                                                     
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let val of OCPDeployedApps">
+                              <td>{{val.name}}</td>
+                              <td><a href="http://{{val.host}}/sample" target="_blank">http://{{val.host}}</a></td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+              </div>            
+
+</div>  

@@ -1,0 +1,316 @@
+[
+  {
+    "title": "Software Discovery Details",
+    "category":"Application Details",
+    "data": [
+      {
+        "id": 1,
+        "applicationName": "BroadLeaf",
+        "host": "10.0.3.13",
+        "software": "Tomcat_Java"
+      },
+      {
+        "id": 2,
+        "applicationName": "Acme Application",
+        "host": "10.0.3.7",
+        "software": "Java, Tomcat"
+      },
+      {
+        "id": 3,
+        "applicationName": "SharePoint Server",
+        "host": "54.91.154.186",
+        "software": "APACHE_HTTPD"
+      },
+      {
+        "id": 4,
+        "applicationName": "easyTravelMobile",
+        "host": "172.23.253.169",
+        "software": "APACHE_HTTPD, PHP, SQLITE"
+      },
+      {
+        "id": 5,
+        "applicationName": "www.easytravelb2b.com",
+        "host": "54.120.22.3",
+        "software": "Tomcat_Java"
+      },
+      {
+        "id": 6,
+        "applicationName": "BroadLeaf",
+        "host": "10.0.3.13",
+        "software": "Tomcat_Java"
+      },
+      {
+        "id": 7,
+        "applicationName": "Acme Application",
+        "host": "10.0.3.7",
+        "software": "Java, Tomcat"
+      },
+      {
+        "id": 8,
+        "applicationName": "SharePoint Server",
+        "host": "54.91.154.186",
+        "software": "APACHE_HTTPD"
+      },
+      {
+        "id": 9,
+        "applicationName": "easyTravelMobile",
+        "host": "172.23.253.169",
+        "software": "APACHE_HTTPD, PHP, SQLITE"
+      },
+      {
+        "id": 10,
+        "applicationName": "www.easytravelb2b.com",
+        "host": "54.120.22.3",
+        "software": "Tomcat_Java"
+      }
+    ]
+  },
+  {
+    "title": "Server Discovery",
+    "category":"Application Details",
+    "data": [
+      {
+        "id": 1,
+        "applicationName": "BroadLeaf",
+        "osVersion": "Windows",
+        "cpu": "Intel Xeon",
+        "storage": "2 TB",
+        "ram": "16 GB"
+      },
+      {
+        "id": 2,
+        "applicationName": "Acme Application",
+        "osVersion": "Windows",
+        "cpu": "Intel Xeon",
+        "storage": "1 TB",
+        "ram": "8 GB"
+      },
+      {
+        "id": 3,
+        "applicationName": "SharePoint Server",
+        "osVersion": "Red Hat",
+        "cpu": "AMD Opteron",
+        "storage": "1 TB",
+        "ram": "16 GB"
+      },
+      {
+        "id": 4,
+        "applicationName": "easyTravelMobile",
+        "osVersion": "Unix",
+        "cpu": "AMD EPYC 7251",
+        "storage": "2 TB",
+        "ram": "16 GB"
+      },
+      {
+        "id": 5,
+        "applicationName": "www.easytravelb2b.com",
+        "osVersion": "Windows",
+        "cpu": "Intel Xeon",
+        "storage": "2 TB",
+        "ram": "8 GB"
+      },
+      {
+        "id": 6,
+        "applicationName": "BroadLeaf",
+        "osVersion": "Windows",
+        "cpu": "Intel Xeon",
+        "storage": "2 TB",
+        "ram": "16 GB"
+      },
+      {
+        "id": 7,
+        "applicationName": "Acme Application",
+        "osVersion": "Windows",
+        "cpu": "Intel Xeon",
+        "storage": "1 TB",
+        "ram": "8 GB"
+      },
+      {
+        "id": 8,
+        "applicationName": "SharePoint Server",
+        "osVersion": "Red Hat",
+        "cpu": "AMD Opteron",
+        "storage": "1 TB",
+        "ram": "16 GB"
+      },
+      {
+        "id": 9,
+        "applicationName": "easyTravelMobile",
+        "osVersion": "Unix",
+        "cpu": "AMD EPYC 7251",
+        "storage": "2 TB",
+        "ram": "16 GB"
+      },
+      {
+        "id": 10,
+        "applicationName": "www.easytravelb2b.com",
+        "osVersion": "Windows",
+        "cpu": "Intel Xeon",
+        "storage": "2 TB",
+        "ram": "8 GB"
+      }
+    ]
+  },
+  {
+    "title": "Server Platform",
+    "category":"Application Details",
+    "data": [
+      {
+        "id": 1,
+        "applicationName": "BroadLeaf",
+        "webServer": "APACHE_HTTPD",
+        "dbServer": "NO_SQL",
+        "appServer": "Tomcat_Java"
+      },
+      {
+        "id": 2,
+        "applicationName": "Acme Application",
+        "webServer": "APACHE_HTTPD",
+        "dbServer": "MYSQL",
+        "appServer": "Tomcat_Java"
+      },
+      {
+        "id": 3,
+        "applicationName": "SharePoint Server",
+        "webServer": "APACHE_HTTPD",
+        "dbServer": "MYSQL",
+        "appServer": "Tomcat_Java"
+      },
+      {
+        "id": 4,
+        "applicationName": "easyTravelMobile",
+        "webServer": "APACHE_HTTPD",
+        "dbServer": "NO_SQL",
+        "appServer": "Tomcat_Java"
+      },
+      {
+        "id": 5,
+        "applicationName": "www.easytravelb2b.com",
+        "webServer": "APACHE_HTTPD",
+        "dbServer": "MYSQL",
+        "appServer": "Tomcat_Java"
+      },
+      {
+        "id": 6,
+        "applicationName": "BroadLeaf",
+        "webServer": "APACHE_HTTPD",
+        "dbServer": "NO_SQL",
+        "appServer": "Tomcat_Java"
+      },
+      {
+        "id": 7,
+        "applicationName": "Acme Application",
+        "webServer": "APACHE_HTTPD",
+        "dbServer": "MYSQL",
+        "appServer": "Tomcat_Java"
+      },
+      {
+        "id": 8,
+        "applicationName": "SharePoint Server",
+        "webServer": "APACHE_HTTPD",
+        "dbServer": "MYSQL",
+        "appServer": "Tomcat_Java"
+      },
+      {
+        "id": 9,
+        "applicationName": "easyTravelMobile",
+        "webServer": "APACHE_HTTPD",
+        "dbServer": "NO_SQL",
+        "appServer": "Tomcat_Java"
+      },
+      {
+        "id": 10,
+        "applicationName": "www.easytravelb2b.com",
+        "webServer": "APACHE_HTTPD",
+        "dbServer": "MYSQL",
+        "appServer": "Tomcat_Java"
+      }
+    ]
+  },
+  {
+    "title": "Resource Utilization",
+    "category":"Application Details",
+    "data": [
+      {
+        "id": 1,
+        "applicationName": "BroadLeaf",
+        "disk": "2 TB",
+        "memory": "16 GB",
+        "cpu": "Intel Xeon",
+        "network": "Acme network"
+      },
+      {
+        "id": 2,
+        "applicationName": "Acme Application",
+        "disk": "1 TB",
+        "memory": "8 GB",
+        "cpu": "Intel Xeon",
+        "network": "Acme network"
+      },
+      {
+        "id": 3,
+        "applicationName": "SharePoint Server",
+        "disk": "1 TB",
+        "memory": "16 GB",
+        "cpu": "AMD Opteron",
+        "network": "Acme network"
+      },
+      {
+        "id": 4,
+        "applicationName": "easyTravelMobile",
+        "disk": "2 TB",
+        "memory": "16 GB",
+        "cpu": "AMD EPYC 7251",
+        "network": "Acme network"
+      },
+      {
+        "id": 5,
+        "applicationName": "www.easytravelb2b.com",
+        "disk": "2 TB",
+        "memory": "8 GB",
+        "cpu": "Intel Xeon",
+        "network": "Acme network"
+      },
+      {
+        "id": 6,
+        "applicationName": "BroadLeaf",
+        "disk": "2 TB",
+        "memory": "16 GB",
+        "cpu": "Intel Xeon",
+        "network": "Acme network"
+      },
+      {
+        "id": 7,
+        "applicationName": "Acme Application",
+        "disk": "1 TB",
+        "memory": "8 GB",
+        "cpu": "Intel Xeon",
+        "network": "Acme network"
+      },
+      {
+        "id": 8,
+        "applicationName": "SharePoint Server",
+        "disk": "1 TB",
+        "memory": "16 GB",
+        "cpu": "AMD Opteron",
+        "network": "Acme network"
+      },
+      {
+        "id": 9,
+        "applicationName": "easyTravelMobile",
+        "disk": "2 TB",
+        "memory": "16 GB",
+        "cpu": "AMD EPYC 7251",
+        "network": "Acme network"
+      },
+      {
+        "id": 10,
+        "applicationName": "www.easytravelb2b.com",
+        "disk": "2 TB",
+        "memory": "8 GB",
+        "cpu": "Intel Xeon",
+        "network": "Acme network"
+      }
+    ]
+  }
+]

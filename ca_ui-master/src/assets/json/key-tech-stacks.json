@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Java",
+    "value": 10
+  },
+  {
+    "id": 2,
+    "name": ".Net",
+    "value": 20
+  },
+  {
+    "id": 3,
+    "name": "Django",
+    "value": 15
+  },
+  {
+    "id": 4,
+    "name": "Lavarel",
+    "value": 25
+  },
+  {
+    "id": 5,
+    "name": "Node.JS",
+    "value": 22
+  }
+]

@@ -1,0 +1,617 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Admin'" [icon]="'fa-bar-chart-o'"></app-page-header>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active text-dark " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Company</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Portfolio</a>
+    </li>
+    <!--<li class="nav-item">
+      <a class="nav-link bg-dark text-white" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="true">Base Image</a>
+    </li>-->
+    <li class="nav-item">
+      <a class="nav-link text-dark" id="build-tab" data-toggle="tab" href="#build" role="tab" aria-controls="build" aria-selected="true">User</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="true">Request</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <!-- App Details Starts  -->
+    <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
+       <!-- Editable table -->
+<div class="">
+    <!-- <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Editable table</h3> -->
+    <div class="card-body">
+      <div id="table" class="table-editable">
+
+
+
+  
+<!--   
+        <span class="table-add float-right mb-3 mr-2" data-toggle="tooltip" data-placement="top" title="Add New Project"><a href="#!" class="text-success"><i class="fa fa-plus fa-2x"
+              aria-hidden="true"></i></a></span> -->
+
+              <button [disabled]="disableBtnCompany" type="button" class="btn btn-link float-right text-success" data-toggle="modal" data-target=".bs-example-modal-new" (click)="onAddCompany()">
+                  <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                </button>
+
+                <div class="modal fade bs-example-modal-new" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+  
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                      
+                      <!-- Modal Content: begins -->
+                      <div class="modal-content">
+                        
+                        <!-- Modal Header -->
+                        <div class="modal-header text-info">
+                          <h4>{{mode ==='addCompany' ? "Add" : "Edit"}} Company</h4>
+                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                            <h4 class="modal-title" id="gridSystemModalLabel">Your Headings</h4>-->
+                        </div>
+                       <form [formGroup]="companyForm" (ngSubmit)="onAddOrUpdateCompany()">
+                        <!-- Modal Body -->  
+                        <div class="modal-body">
+                          <div class="body-message">                           
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <label class="form-check-label">Company Name </label>          
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <input class="form-control" type="text" formControlName="companyname">          
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <label class="form-check-label">Address1</label>          
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <input class="form-control" type="text" formControlName="address1">
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <label class="form-check-label">Address2</label>          
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <input class="form-control" type="text" formControlName="address2" >
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <label class="form-check-label">City</label>          
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <input class="form-control" type="text" formControlName="city" >
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <label class="form-check-label">State</label>          
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <input class="form-control" type="text" formControlName="state" >
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <label class="form-check-label">Country</label>          
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <input class="form-control" type="text" formControlName="country" >
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <label class="form-check-label">  ZipCode </label>          
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <input class="form-control" type="text" formControlName="zipcode" >
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-sm-4">
+                                    <label class="form-check-label">Website</label>          
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <input class="form-control" type="text" formControlName="website" >
+                                  </div>
+                              </div>                                        
+                          </div>
+                        </div>
+                      
+                        <!-- Modal Footer -->
+                        <div class="modal-footer">
+                          <button type="submit"
+                          class="btn btn-success"                          
+                          [disabled]="!companyForm.valid"                         
+                          >{{mode ==='updateCompany' ? "Update" : "Save"}}</button>
+                            <!--<button 
+                              type="button" 
+                              class="btn btn-success" 
+                              data-dismiss="modal"  
+                              (click)="onAddOrUpdateCompany()"
+                              ></button>-->
+                          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onCompanyClose()" #closeCompanyBtn> Close</button>
+                        </div>
+                       </form>
+                      </div>
+                      <!-- Modal Content: ends -->
+                      
+                    </div>
+                    
+                  </div>       
+                    
+        <table class="table table-bordered table-responsive-md table-condensed">
+                     
+                <tr class="table-info">
+                    <th>Company Name</th>
+                    <th>Address1</th>
+                    <th>Address2</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Country</th>
+                    <th>Zipcode</th>
+                    <th>Company Website</th>
+                    <th>   Action  </th>        
+                  </tr>
+         
+         
+          <tr *ngFor="let val of allcompany;let i=index;" >
+            <td>{{val.companyName}}</td>
+            <td>{{val.address}}</td>
+            <td>{{val.address2}}</td>
+            <td>{{val.city}}</td>      
+            <td>{{val.state}}</td>      
+            <td>{{val.country}}</td>
+            <td>{{val.zipcode}}</td>      
+            <td>{{val.companyUrl}}</td>
+            <td style="width:14%;">
+             
+                    <button  [disabled]="disableBtnCompany" class="btn btn-danger btn-sm float-center" 
+                    (click)="onDeleteCompany(val.companyId,i)" style="font-size:13px;" >Delete</button>&nbsp;
+                    
+                    <button 
+                    [disabled]="disableBtnUser"
+                    class="btn btn-default btn-sm float-center" 
+                    data-toggle="modal" data-target=".bs-example-modal-new" 
+                    (click)="onEditCompany(val)" style="font-size:13px;">Edit</button>            
+                  <!-- <button class="text-success" style="background:none;border:none;"><i class="fa fa-edit fa-2x" aria-hidden="true" style="margin-left:10px;" ></i></button> -->
+             
+            </td>
+          </tr>
+        
+        </table>
+        </div>
+      </div>
+  </div>
+  <!-- Editable table -->
+    </div> 
+    <!-- App Details Ends  -->
+    <!-- Code Repository Starts  -->
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <!-- Editable table -->
+<div class="">
+    <!-- <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Editable table</h3> -->
+    <div class="card-body">
+      <div id="table" class="table-editable">
+  
+  
+        <button 
+            [disabled]="disableBtnProject"
+            type="button"
+            class="btn btn-link float-right text-success" 
+            data-toggle="modal"     
+            data-target=".bs-example-modal-new1" 
+            (click)="onAddProject(portfolioName,projectCompanyName)">
+            <i class="fa fa-plus fa-2x"
+                aria-hidden="true">
+            </i>
+        </button>        
+
+
+              <div class="modal fade bs-example-modal-new1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                  
+                  <!-- Modal Content: begins -->
+                  <div class="modal-content">
+                    
+                    <!-- Modal Header -->
+                    <div class="modal-header text-info">
+                      <h4>{{mode ==='addProject' ? "Add" : "Edit "}} Portfolio</h4>
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">Your Headings</h4>-->
+                    </div>
+                  
+                    <!-- Modal Body -->  
+                    <div class="modal-body">
+                      <div class="body-message">
+                          <div class="row">
+                              <div class="col-sm-4">
+                                <label class="form-check-label">Portfolio Name</label>          
+                              </div>
+                              <div class="col-sm-4">
+                                  <input class="form-control" type="text" #portfolioName>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-sm-4">
+                                <label class="form-check-label">Company Name </label>          
+                              </div>
+                              <div class="col-sm-4">
+                                  <select class="form-control" #projectCompanyName>
+                                    <option [selected]="selectedProjectCompanyName === ''">Select an option</option>
+                                    <option 
+                                      *ngFor="let val of allcompany;let i=index;"
+                                      [value]="val.companyId"
+                                      [selected]=" val.companyName === selectedProjectCompanyName"
+                                      >{{val.companyName}}</option>
+                                  </select>         
+                              </div>
+                          </div>                                                                       
+                      </div>
+                    </div>
+                  
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button
+                          type="button" 
+                          class="btn btn-success" 
+                          data-dismiss="modal"  
+                          (click)="onAddOrUpdateProject(portfolioName,projectCompanyName)"
+                          >{{mode ==='updateProject' ? "Update" : "Save"}}</button>
+                      <button 
+                        type="button" 
+                        class="btn btn-primary" 
+                        data-dismiss="modal" 
+                        (click)="onProjectClose(portfolioName,projectCompanyName)"
+                        >Close</button>
+                    </div>
+                  
+                  </div>
+                  <!-- Modal Content: ends -->
+                  
+                </div>
+                
+              </div>
+
+        <table class="table table-bordered table-responsive-md table-condensed ">
+          <tr class="table-info">
+            <th>Portfolio Name</th>
+            <th>Company Name</th>          
+            <th>Created By </th>
+            <th>Created On</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let val of allprojects; let i=index;">
+            <td class="pt-3-half" >{{val.project.projectName}}</td>
+            <td class="pt-3-half">{{val.companyName}}</td>
+            <td class="pt-3-half">{{val.project.createdBy}}</td>
+            <td class="pt-3-half" >{{val.project.createdOn}}</td>
+            
+           
+            <td style="width: 14%;">
+              <span class="table-remove">                 
+                    <button
+                    [disabled]="disableBtnProject"
+                     class="btn btn-danger btn-sm float-center" (click)="onDeleteProject(val.project.projectId,i)" style="font-size:13px;">Delete</button>
+                    &nbsp;<button 
+                    [disabled]="disableBtnProject"
+                    class="btn btn-default btn-sm float-center" data-toggle="modal" data-target=".bs-example-modal-new1" (click)="onEditProject(val,portfolioName,projectCompanyName)" style="font-size:13px;">Edit</button>            
+                </span>
+            </td>
+          </tr>
+        
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- Editable table -->
+  
+    </div>
+    <!-- Code Repository Ends  -->
+    <!-- Build Start -->
+    <div class="tab-pane fade" id="build" role="tabpanel" aria-labelledby="build-tab">
+      
+    <!-- Editable table -->
+<div class="">
+  <!-- <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Editable table</h3> -->
+  <div class="card-body">
+    <div id="table" class="table-editable">      
+            <button 
+            [disabled]="disableBtnUser"
+            type="button"
+            class="btn btn-link float-right text-success" 
+            data-toggle="modal"     
+            data-target=".bs-example-modal-new2" 
+            (click)="onAddUser(userId,username,password,role,userCompanyName,companyEmail,phone)">
+            <i class="fa fa-plus fa-2x"
+                aria-hidden="true">
+            </i>
+        </button>         
+
+   <div class="modal fade bs-example-modal-new2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+       <div class="modal-dialog modal-lg modal-dialog-centered">
+   
+                  <!-- Modal Content: begins -->
+                  <div class="modal-content">
+                    
+                    <!-- Modal Header -->
+                    <div class="modal-header text-info">
+                      <h4>{{mode ==='addUser' ? "Add" : "Edit"}} User</h4>
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">Your Headings</h4>-->
+                    </div>
+                  
+                    <!-- Modal Body -->  
+                    <div class="modal-body">
+                      <div class="body-message">
+                          <div class="row">
+                              <div class="col-sm-4">
+                                <label class="form-check-label">UserId</label>          
+                              </div>
+                              <div class="col-sm-4">
+                                  <input class="form-control" type="text" #userId>
+                              </div>
+                          </div>
+                           <div class="row">
+                              <div class="col-sm-4">
+                                <label class="form-check-label">Username</label>          
+                              </div>
+                              <div class="col-sm-4">
+                                  <input class="form-control" type="text" #username>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-4">
+                              <label class="form-check-label">Password</label>          
+                            </div>
+                            <div class="col-sm-4">
+                                <input class="form-control" [type]="showPass ? 'text' : 'password'" #password>
+                                <!-- <button (click)="ShowPassword()">{{showPass ? 'Hide' : 'Show'}}</button> -->
+                            </div>
+                        </div>
+                          <div class="row">
+                            <div class="col-sm-4">
+                              <label class="form-check-label">Role </label>          
+                            </div>
+                            <div class="col-sm-4">
+                                <select [disabled]="disableBtnUser" class="form-control" #role>
+                                  <option [selected]="selectedRoleOfUser === ''">Select an option</option>
+                                  <option 
+                                    *ngFor="let val of allroles;let i=index;"
+                                    [value]="val.roleId"
+                                    [selected]=" val.roleName === selectedRoleOfUser"
+                                    [disabled]="val.roleName === 'Admin' && disableBtnCompany"                                    
+                                    >{{val.roleName}}</option>
+                                </select>         
+                            </div>
+                        </div>
+
+                          <div class="row">
+                              <div class="col-sm-4">
+                                <label class="form-check-label">Company Name </label>          
+                              </div>
+                              <div class="col-sm-4">
+                                  <select class="form-control" #userCompanyName>
+                                    <option [selected]="selectedUserCompanyName === ''">Select an option</option>
+                                    <option 
+                                      *ngFor="let val of allcompany;let i=index;"
+                                      [value]="val.companyId"
+                                      [selected]=" val.companyName === selectedUserCompanyName"
+                                      >{{val.companyName}}</option>
+                                  </select>         
+                              </div>
+                          </div>
+                           <div class="row">
+                              <div class="col-sm-4">
+                                <label class="form-check-label">Company Email</label>          
+                              </div>
+                              <div class="col-sm-4">
+                                  <input class="form-control" type="text" #companyEmail>
+                              </div>
+                          </div>                           
+                           <div class="row">
+                              <div class="col-sm-4">
+                                <label class="form-check-label">Phone</label>          
+                              </div>
+                              <div class="col-sm-4">
+                                  <input class="form-control" type="text" #phone>
+                              </div>
+                          </div>                                                                      
+                      </div>
+                    </div>
+                  
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button
+                          type="button" 
+                          class="btn btn-success" 
+                          data-dismiss="modal"  
+                          (click)="onAddOrUpdateUser(userId,username,password,role,userCompanyName,companyEmail,phone)"
+                          >{{mode ==='updateUser' ? "Update" : "Save"}}</button>
+                      <button 
+                        type="button" 
+                        class="btn btn-primary" 
+                        data-dismiss="modal" 
+                        (click)="onUserClose(userId,username,password,role,userCompanyName,companyEmail,phone)"
+                        >Close</button>
+                    </div>
+                  
+                  </div>
+                  <!-- Modal Content: ends -->
+                  
+                </div>
+                
+              </div>
+      <table class="table table-bordered table-responsive-md table-condensed">
+        <tr class="table-info">
+          <th>UserId</th>          
+          <th>Username</th>
+          <th>Role</th>
+          <th>Company Name</th>
+          <th>Company Email</th>
+          <!-- <th>Password</th> -->
+          <th>Phone</th>
+          <th>createdBy</th>
+          <th>createdOn</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let val of allusers; let i=index;">
+          <td class="pt-3-half">{{val.user.username}}</td>
+          <td class="pt-3-half">{{val.user.fullname}}</td>
+          <td class="pt-3-half">{{val.role}}</td>
+          <td class="pt-3-half">{{val.companyName}}</td>
+          <td class="pt-3-half">{{val.user.companyEmail}}</td>
+          <!-- <td class="pt-3-half">{{val.user.password}}</td> -->
+          <td class="pt-3-half">{{val.user.cell}}</td>
+          <td class="pt-3-half">{{val.user.createdBy}}</td>
+          <td class="pt-3-half">{{val.user.createdOn}}</td>
+         
+          <td style="width:135px;">
+            <span class="table-remove">
+                <button
+                [disabled]="disableBtnUser"
+                class="btn btn-danger btn-sm float-left" (click)="onDeleteUser(val.user.userId,i)" style="font-size:13px;">Delete</button>
+                &nbsp;
+                <button class="btn btn-default btn-sm" data-toggle="modal" data-target=".bs-example-modal-new2" 
+                (click)="onEditUser(val,userId,username,password,role,userCompanyName,companyEmail,phone)" style="font-size:13px;">Edit</button>
+            </span>
+            </td>
+        </tr>
+        </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
+
+
+
+    </div>
+      <!--requet-->
+      <div class="tab-pane fade" id="request" role="tabpanel" aria-labelledby="request-tab">
+        
+            <div class="">
+              <div class="card-body">
+                <div id="table" class="table-editable">  
+                  
+                    <button               
+                    type="button"
+                    class="btn btn-link float-right text-success" 
+                    data-toggle="modal"     
+                    data-target=".bs-example-modal-new3" 
+                    >
+                    <i class="fa fa-plus fa-2x"
+                        aria-hidden="true">
+                    </i>
+                </button> 
+                        
+            
+               <div class="modal fade bs-example-modal-new3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                   <div class="modal-dialog modal-lg modal-dialog-centered">
+               
+                              <!-- Modal Content: begins -->
+                              <div class="modal-content">
+                                
+                                <!-- Modal Header -->
+                                <div class="modal-header text-info">
+                                  <h4>request </h4>
+                                </div>
+                              
+                                <!-- Modal Body -->  
+                                <div class="modal-body">
+                                  <div class="body-message">
+                                      <div class="row">
+                                          <div class="col-sm-4">
+                                            <label class="form-check-label">Image name</label>          
+                                          </div>
+                                          <div class="col-sm-4">
+                                              <input class="form-control" type="text" #img>
+                                          </div>
+                                      </div>
+                                       <div class="row">
+                                          <div class="col-sm-4">
+                                            <label class="form-check-label">Request description</label>          
+                                          </div>
+                                          <div class="col-sm-4">
+                                              <input class="form-control" type="text" #req>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-sm-4">
+                                          <label class="form-check-label">Customization details</label>          
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input class="form-control" type="text" #details>
+                                        </div>
+                                      </div>
+                                                                                                         
+                                  </div>
+                                </div>
+                              
+                                <!-- Modal Footer -->
+                                <div class="modal-footer">
+                                  <button
+                                  type="button" 
+                                  class="btn btn-success" 
+                                  data-dismiss="modal"                                  
+                                  >Save</button>
+                                </div>
+                              
+                              </div>
+                              <!-- Modal Content: ends -->
+                              
+                            </div>
+                            
+                          </div>
+                  <table class="table table-bordered table-responsive-md table-condensed">
+                    <tr class="table-info">
+                      <th>Sr No.</th>
+                      <th>Image name</th>         
+                      <th>Version</th> 
+                      <th>Request description</th> 
+                      <th>OS</th> 
+                      <th>Hardware/Architecture</th>          
+                      <th>Status</th>
+                      
+                    </tr>
+                    <tr *ngFor="let val of MarketplaceImages; let i=index;">
+                      <td class="pt-3-half">{{i+1}}</td>
+                      <td class="pt-3-half">{{val.imageName}}</td>
+                      <td class="pt-3-half">{{val.tag}}</td>                                            
+                      <td class="pt-3-half">{{val.description}}</td>
+                      <td class="pt-3-half">{{val.os}}</td>                                            
+                      <td class="pt-3-half">{{val.hardware}}</td>
+                      <td style="width:135px;">
+                          <span class="custom-control custom-checkbox">
+                            <input type="checkbox" name="acceptRules" class="inline checkbox" id="checkbox1" value="false" (click)="onClickCheckbox(val.userId)">
+                              <!-- <button class="btn btn btn-sm" data-toggle="modal" data-target=".bs-example-modal-new2" 
+                              (click)="onClickCheckbox(img,req,details)" style="font-size:20px;"></button> -->
+                          </span>
+                      </td>
+                    </tr>
+                    </table>
+                    <button
+                    type="button" 
+                    style="float:right"
+                    class="btn btn-success" 
+                    data-dismiss="modal"  
+                    (click)="onRequestCompleted()"                                
+                    >Compeleted</button>
+                </div>
+              </div>
+            </div>
+            <!-- Editable table -->
+            </div>
+   
+          
+  </div>

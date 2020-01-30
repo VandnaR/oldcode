@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "logo": "AC",
+    "name": "Acme Customer 1",
+    "type": "Assessment"
+  },
+  {
+    "id": 2,
+    "logo": "LC",
+    "name": "Lorem Customer 2",
+    "type": "Discovery"
+  },
+  {
+    "id": 3,
+    "logo": "IC",
+    "name": "Ipsum Customer 3",
+    "type": "Assessment"
+  },
+  {
+    "id": 4,
+    "logo": "AC",
+    "name": "Acme Customer 4",
+    "type": "Assessment"
+  },
+  {
+    "id": 5,
+    "logo": "LC",
+    "name": "Lorem Customer 5",
+    "type": "Migration"
+  },
+  {
+    "id": 6,
+    "logo": "AC",
+    "name": "Acme Customer 6",
+    "type": "Assessment"
+  },
+  {
+    "id": 7,
+    "logo": "LC",
+    "name": "Lorem Customer 7",
+    "type": "Discovery"
+  },
+  {
+    "id": 8,
+    "logo": "IC",
+    "name": "Ipsum Customer 8",
+    "type": "Assessment"
+  },
+  {
+    "id": 9,
+    "logo": "AC",
+    "name": "Acme Customer 9",
+    "type": "Assessment"
+  },
+  {
+    "id": 10,
+    "logo": "LC",
+    "name": "Lorem Customer 10",
+    "type": "Migration"
+  }
+]

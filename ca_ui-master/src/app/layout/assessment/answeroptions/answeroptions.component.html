@@ -1,0 +1,29 @@
+<div *ngIf="question.answerType == 'SINGLE_SELECT'">
+  <app-single-select     
+    [answersoptions]="answerOptions"
+    [queslist]="questionsList"
+    [ansMap]="answersMapByQID"    
+    >
+    </app-single-select>
+</div>
+<div *ngIf="question.answerType == 'MULTI_SELECT'">
+  <!--<app-multi-select></app-multi-select>-->
+</div>
+<div *ngIf="question.answerType == 'MULTI_SELECT_CHECKBOX'">
+  <app-multiselect-checkbox 
+    [answersoptions]="answerOptions"
+    [queslist]="questionsList"
+    [ansMap]="answersMapByQID"
+  >
+
+  </app-multiselect-checkbox>
+</div>
+<div *ngIf="question.answerType == 'RADIO_BUTTON'">
+  <!--<app-radio-button></app-radio-button>-->
+</div>
+<div *ngIf="question.answerType == 'FREE_TEXT'">
+  <!--<app-free-text></app-free-text>-->
+</div>
+<div *ngIf="question.answerType == 'TEXTAREA'">
+  <!--<app-text-area></app-text-area>-->
+</div>

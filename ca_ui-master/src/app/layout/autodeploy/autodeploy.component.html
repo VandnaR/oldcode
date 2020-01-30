@@ -1,0 +1,299 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Deploy'" [icon]="'fa-bar-chart-o'"></app-page-header>
+
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active text-dark" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" >Environment Details</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true" >YAML Deploy</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark " id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="true">Image Deploy</a>
+    </li>
+
+    <!--<li class="disabled text-dark" style="margin-left:500px;font-size: 36px;">
+        <a href="http://localhost:4200/auto_build" class="text-dark">
+          <i class=""> < </i>
+        </a>
+    </li>
+    <li class="waves-effect text-dark" style="margin-left:10px;font-size:36px;">
+      <a href="http://localhost:4200/autodeploy" class="text-dark">
+        <i class="">></i>
+      </a>
+    </li>-->
+    </ul>
+
+  
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+        <div class="row" style="margin:10px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label"> Portfolio Name : </label>
+            </div>
+            <div class="col-sm-4" align="left">
+              <select class="form-control" id="ddl_projects" name="ddl_projects"(change)="showImageRepositoriesAndApps($event.target.value)" #ddlprojects>                            
+                  <option value="0">Select an option</option>
+                  <option                                           
+                  *ngFor="let project of projects"
+                  [value]="project.projectId"
+                >{{project.projectName}}</option>
+              </select> 
+            </div>
+        </div>
+
+        <div class="row" style="margin:10px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label"> Application Name: </label>
+            </div>
+            <div class="col-sm-4" align="left">
+              <select class="form-control" id="ddl_projects" name="ddl_projects" #selectedAppName>                            
+                                    <option value="0">Select an Application</option>
+                                    <!--<option>< New ></option>-->
+                                    <option                                           
+                                      *ngFor="let app of applications"
+                                      [value]="app.appName"
+                                    >{{app.appName}}</option>  
+                            </select>
+            </div>
+        </div>
+
+     <div class="row" style="margin:20px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label">Environment List: </label>
+            </div>
+            <div class="col-sm-4" align="left">
+              <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="getClusters($event.target.value)" #selectedProvider>                            
+                                    <option value="0">Select Provider</option>
+                                    <option value="Google Cloud">Google Cloud</option>
+                                    <option value="AWS">AWS</option>
+                                    <option value="Azure">Azure</option>
+                                    <option value="Openshift">Openshift</option>
+                                    <!-- <option value="PCF">PCF</option> -->
+                                    <!-- <option                                           
+                                      *ngFor="let project of projects"
+                                      [value]="project.projectId"
+                                    >{{project.projectName}}</option>  -->
+                            </select>
+            </div>
+      </div>
+
+            <!--  -->
+            <div class="row" style="margin:20px 0px 10px 0px" [hidden]="showOcProjects">
+                <div class="col-sm-3">
+                  <label class="form-check-label">Clusters: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                  <select class="form-control" id="ddl_projects" name="ddl_projects"  #selectedCluster>                            
+                                        <option value="0">Select a Cluster</option>
+                                        <!--<option>< New ></option>-->
+                                        <option                                           
+                                          *ngFor="let array of clusters"
+                                          [value]="array.name"
+                                        >{{array.name}}</option> 
+                                </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin:20px 0px 10px 0px" [hidden]="!showOcProjects">
+                <div class="col-sm-3">
+                  <label class="form-check-label">OCP Projects: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                  <select class="form-control" id="ddl_ocpprojects" name="ddl_ocpprojects" #selectedOCPProject>
+                                        <option value="0">Select a project</option>
+                                        <!--<option>< New ></option>-->
+                                        <option                                           
+                                          *ngFor="let val of oCPProjects"
+                                          [value]="val.projectName"
+                                        >{{val.projectName}}</option> 
+                                </select>
+                </div>
+            </div>
+
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <!-- <div class="row" style="margin:20px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label">Environment Name: </label>
+            </div>
+            <div class="col-sm-4" align="left">
+                <input type="name" placeholder="" name="name" required>
+            </div>
+            </div>
+            
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label">Cluster Name: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                <input type="name" placeholder="" name="name" [(ngModel)]="name" required>
+                </div>
+            </div> -->
+            <!--  -->
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label"> Upload YAML File: </label>
+                </div>
+                <div class="row" style="margin:0px 0px 0px 0px">
+                  
+                  <div class="col-sm-4">
+                      <div class="">
+                          <input type="file" (change)="fileChange($event)" #yamlFile >
+                      </div>                   
+                  </div> 
+                  
+              </div>
+             </div>
+            <!--  -->
+            <!-- <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label"> Select YAML File: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                  <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="getApps($event.target.value)">                            
+                                        <option value="0">Select a FILE</option>
+                                        
+                                        <option                                           
+                                          *ngFor="let project of projects"
+                                          [value]="project.projectId"
+                                        >{{project.projectName}}</option>                                                        
+                                </select>
+                </div>
+            </div> -->
+
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label></label>
+                </div>
+                <div class="col-sm-4" align="left">
+                  <button class="btn btn-default" type="button" (click)="yamlDeploy(ddlprojects,selectedAppName,selectedProvider,selectedCluster,yamlFile)" [disabled]="showLoad || completed">Deploy</button>
+                </div>
+            </div>
+
+        </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <!-- <div class="row" style="margin:20px 0px 10px 0px">
+            <div class="col-sm-3">
+              <label class="form-check-label">Environment Names: </label>
+            </div>
+            <div class="col-sm-4" align="left">
+                <input type="name" placeholder="Enter Project Name" name="name" required>
+            </div>
+            </div>
+            
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label">Clustor Name: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                <input type="name" placeholder="Enter Application Name" name="name" required>
+                </div>
+            </div>
+             -->
+             
+      
+
+                
+
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label"> Repository Name: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                  <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="getImages($event.target.value)" #selectedRepo>
+                                        <option value="0">Select Repository</option>
+                                        <!--<option>< New ></option>-->
+                                        <option                                           
+                                          *ngFor="let repo of containerRepo"
+                                          [value]="repo.repoName"
+                                        >{{repo.repoName}}</option>  
+                                </select>
+                </div>
+            </div>
+
+           
+            <!--  -->
+            <!-- <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label"> Repository Name: </label>
+                </div>
+                <div class="col-sm-4" align="left">
+                  <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="getApps($event.target.value)">                            
+                                        <option value="0">Select an Repo name</option>
+                                        <option>< New ></option>
+                                        <option                                           
+                                          *ngFor="let project of projects"
+                                          [value]="project.projectId"
+                                        >{{project.projectName}}</option>                                                        <option> <{{"New"}}> </option>
+                                </select>
+                </div>
+            </div> -->
+            <!--  -->
+            <div class="row" style="margin:10px 0px 10px 0px">
+                <div class="col-sm-3">
+                  <label class="form-check-label"> Image : </label>
+                </div>
+            <div class="col-sm-6" align="left">
+                <div class="form-group">
+                      <select multiple class="form-control" id="exampleFormControlSelect2" #selectedImage>
+                      <!-- <div class="form-check-inline">
+                            <label class="form-check-label" for="radio2">
+                            <option>  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Public</option>>
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" disabled>Private
+                            </label>
+                          </div> -->
+                          <option                                           
+                              *ngFor="let image of images"
+                              [value]="image.imageName"
+                              >{{image.imageName}}:{{image.tag}}</option>
+                    </select>
+                  </div>
+
+                </div>
+            </div>
+                <!--  -->
+                <div class="row" style="margin:10px 0px 10px 0px">
+                    <div class="col-sm-3">
+                      <label class="form-check-label"> Port : </label>
+                    </div>
+                    <div class="col-sm-4" align="left">
+                    <input type="text" placeholder="Enter Port " name="port" required #port>
+                    </div>
+                </div>
+                <div class="row" style="margin:10px 0px 10px 0px">
+                    <div class="col-sm-3">
+                      <label></label>
+                    </div>
+                    <div class="col-sm-4" align="left">
+                      <button class="btn btn-default" type="button" (click)="deploy(ddlprojects,selectedAppName,selectedProvider,selectedCluster,selectedOCPProject,selectedRepo,selectedImage,port)" [disabled]="showLoad || completed">Deploy</button>
+                    </div>
+                </div>
+                <div class="row" style="margin:10px 0px 10px 0px">
+                  <div class="col-sm-3">
+                    
+                  </div>
+                  <div class="col-sm-6" *ngIf="showLoad;">                            
+                    <i class="fa fa-spinner fa-spin" style="font-size:20px"></i> &nbsp; Deploying                         
+                  </div>  
+                  <div class="col-sm-6" *ngIf="completed"> 
+                    <div class="alert alert-success">
+                      <strong>Deployement completed!</strong> 
+                    </div>                    
+                  </div>          
+              </div>
+               
+                
+    </div>
+  </div>
+
+  
+
+</div>  

@@ -1,0 +1,22 @@
+/* all of them */
+.five {width:1024px}
+
+/* all the labels */
+.five label{
+    float:left; /* so every checkbox is next to the previus one */
+    display:table-cell; /* so the content width will match the longer text */
+}
+
+
+/* set the width for the "cell" in this case, the label */
+
+/* same here for the rest */
+.five label{width:28%}
+.five label:nth-child(25n+5){float:left;clear:both;}
+
+.childbtn{
+    border: none;
+    background: none;
+    cursor: pointer; 
+    position: absolute;      
+}

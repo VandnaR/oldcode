@@ -1,0 +1,137 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Portfolio Advisory'" [icon]="'fa-bar-chart-o'"></app-page-header>
+    <div class="row">
+        <div class="col-sm-3">
+          <label class="form-check-label" style="padding-left:5px;">Portfolio Name :</label>
+        </div><br>
+        <div class="col-sm-4">
+          <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="getAdviosoryTotalScore($event.target.value)">                          
+                <option value="0">Select an option</option>
+                <!--<option>< New ></option>-->
+                <option                                           
+                  *ngFor="let project of projects"
+                  [value]="project.projectId"
+                  >{{project.projectName}}</option>                                 
+          </select>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-sm-6" *ngIf="barChartData.length!=0">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Application Score View
+                </div>
+                <div class="card-body">
+                    <br>
+                    <br>
+                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" [colors]="barChartColors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+                <!--<div class="card-footer">
+                    <button class="btn btn-info btn-sm" (click)="randomize()">Update</button>
+                </div>-->
+                
+
+            </div>            
+        </div>
+        <div class="col col-sm-6" *ngIf="barChartDataForPlatformFitmentApplication.length!=0">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Application Platform View
+                </div>
+                <div class="card-body">
+                    <canvas baseChart [datasets]="barChartDataForPlatformFitmentApplication" [labels]="barChartLabelsForPlatformFitmentApplication" [options]="barChartOptionsPlatformFitmentApplication" [legend]="barChartLegendPlatformFitmentApplication" [chartType]="barChartTypePlatformFitmentApplication" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div> 
+      <!--  <div class="col col-sm-6" *ngIf="doughnutChartData.length!=0">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Category Score View
+                </div>
+                <div class="card-body">
+                    <canvas baseChart height="180px" [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>-->
+    </div>
+    <div class="row">  
+        <!--<div class="col col-sm-7" *ngIf="barChartDataForPlatformFitmentApplication.length!=0">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Application Platform View
+                </div>
+                <div class="card-body">
+                    <canvas baseChart [datasets]="barChartDataForPlatformFitmentApplication" [labels]="barChartLabelsForPlatformFitmentApplication" [options]="barChartOptionsPlatformFitmentApplication" [legend]="barChartLegendPlatformFitmentApplication" [chartType]="barChartTypePlatformFitmentApplication" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div> -->
+<!--        <div class="col col-sm-5" *ngIf="barChartDataForPlatformFitmentproject.length!=0">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Overall Platform View
+                </div>
+                <div class="card-body">
+                    <br>
+                    <canvas baseChart [datasets]="barChartDataForPlatformFitmentproject" [labels]="barChartLabelsForPlatformFitmentproject" [options]="barChartOptionsforPlatformFitmentproject" [legend]="barChartLegendForPlatformFitmentproject" [chartType]="barChartTypeForPlatformFitmentproject" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                    <br>
+                    <br>
+                </div>               
+            </div>
+        </div> -->    
+    </div>    
+<!--    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Radar Chart
+                </div>
+                <div class="card-body">
+                    <canvas baseChart height="150px" [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="radarChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Pie Chart
+                </div>
+                <div class="card-body">
+                    <canvas baseChart height="150px" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!--
+    <div class="row">
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Polar Area Chart
+                </div>
+                <div class="card-body">
+                    <canvas baseChart height="130px" [data]="polarAreaChartData" [labels]="polarAreaChartLabels" [legend]="polarAreaLegend" [chartType]="polarAreaChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Line Chart
+                </div>
+                <div class="card-body">
+                    <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>

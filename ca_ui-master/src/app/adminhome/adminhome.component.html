@@ -1,0 +1,118 @@
+<header>
+    <div class="cover-header">
+      <div class="top-c-header upload" >
+        <div class="left-c-header">
+            <a href="javascript:;" class="click-logo" [routerLink]="['/customer/dashboard']">
+              <img src="assets/images/logo-wipro.png" alt="icon">
+            </a>
+            <div class="cloud-mig">
+              <img size=""src="assets/images/SnipImage.PNG" alt="icon">
+            </div>
+            <!-- cloud mig -->
+        </div>
+        <!-- left c header -->
+        
+        <!-- middle c header -->
+        <div class="right-header">
+          
+          <ul class="list-r-header">     
+            
+              <li>
+                  <span style="color: black" class="fa fa-user"> {{username}}</span>
+                </li>
+            <!-- <li>
+              <a href="javascript:;" [routerLink]="['/admin']" [routerLinkActive]="['router-link-active']" *ngIf="showSetting;">
+                <img src="assets/images/setting.png" alt="icon" [routerLink]="['/admin']" [routerLinkActive]="['router-link-active']">
+                </a>             
+            </li> -->
+            
+            <li>
+              <a href="javascript:void(0);" class="nav-link" (click)="onLoggedout()">
+                <img src="assets/images/logout.png" alt="icon">
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- right header -->
+      </div>
+      
+    </div>
+    <!-- cover header -->
+</header>
+
+<!--  -->
+
+<div class="all-customers-page">
+        <div class="title-customers">
+           <h2 class="title">All Customers</h2>
+          <span class="small-line"></span>
+        </div>
+        <!-- end/title-customers -->
+        <div class="content-info-customers">
+          
+          <!-- end/seach-for-customer -->
+          <div class="info-customer">
+            <ul class="list-customer">
+              <li class="flex-edge item-customer" *ngFor="let val of allcompany; let i=index;">
+                <div class="left-title flex-y">
+                  <div class="circle-title flex-both" [ngClass]="{
+                      'dark-blue': i % 5 === 0,
+                      'pure-blue': i % 5 === 1,
+                      'moderate-green': i % 5 === 2,
+                      'vivid-orange': i % 5 === 3,
+                      'strong-violet': i % 5 === 4
+                    }">
+                   
+                  </div>
+                  <!-- end/circle-titles -->
+                  <span class="name-customer">{{val.companyName}}</span>
+                </div>
+                <!-- end/left-title -->                
+                <!-- end/action -->
+                <a href="javscript:;" class="wrapp-all" (click)="openDashboard(val.companyName,val.companyId)"></a>
+              </li>
+              <!-- <li class="flex-edge item-customer">
+                <a href="javascript:;" class="btn-contact btn-prev disable ">
+                  <span class="small-icon icon-prev">
+                    <img src="assets/images/icon-prev.svg" alt="IMG">
+                  </span> Prev
+                </a>
+                <ul class="list-page flex-y">
+                  <li class="flex-y active"><a href="javascript:;"><span class="number-page">1</span></a></li>
+                  <li class="flex-y"><a href="javascript:;"><span class="number-page">2</span></a></li>
+                  <li class="flex-y"><a href="javascript:;"><span class="number-page">3</span></a></li>
+                  <li class="flex-y"><a href="javascript:;"><span class="number-page">4</span></a></li>
+                  <li class="flex-y"><a href="javascript:;"><span class="number-page">5</span></a></li>
+                </ul>
+                <a href="javascript:;" class="btn-contact  btn-next">
+                  Next
+                  <span class="small-icon icon-next">
+                    <img src="assets/images/icon-next.svg" alt="IMG">
+                  </span>
+                </a>
+              </li> -->
+            </ul>
+          </div>
+          <!-- end/info-customer -->
+        </div>
+        <!-- end/content-info-customers-->
+        <img src="assets/images/dash-bg.svg" alt="IMG" class="icon-bg">
+      </div>
+      <!-- end/all customers page -->
+
+
+      <!--  -->
+
+    <!-- <div align="center" >
+                 
+            <div *ngFor="let val of allcompany; let i=index;">
+                <div class="row">
+                    <a>{{val.companyName}}</a>
+                </div>
+            </div>
+            
+            
+    </div> -->
+
+
+ 

@@ -1,0 +1,97 @@
+[
+  {
+    "CSP": "GCP",
+    "offering": [{
+            "optionName":  "Zonal GKE Cluster with Stackdriver",
+            "optionValue": "GKE-ZonalCluster"
+        }
+    ],
+    "fieldsNameVal": [
+      {
+        "fieldName": "Cluster Name",
+        "fieldDesc": "Name of the GKE Cluster",
+        "fieldId": "clusterName"
+      },
+      {
+        "fieldName": "Initial Node Count",
+        "fieldDesc": "Initial Worker node count",
+        "fieldId": "initialNodeCount"
+      },
+      {
+        "fieldName": "Machine Type",
+        "fieldDesc": "Worker Node Machine type",
+        "fieldId": "machineType"
+      },
+      {
+        "fieldName": "Network",
+        "fieldDesc": "GCP Network in which the cluster nodes should be placed",
+        "fieldId": "network"
+      },
+      {
+        "fieldName": "Sub Network",
+        "fieldDesc": "Subnet in which the Cluster nodes should be placed",
+        "fieldId": "subnetwork"
+      },
+      {
+        "fieldName": "Zone",
+        "fieldDesc": "Zone in which the Cluster Master and Nodes should be created",
+        "fieldId": "zone"
+      },
+      {
+        "fieldName": "Regions",
+        "fieldDesc": "Region in which the Network and Subnetwork are created",
+        "fieldId": "regions"
+      },
+      {
+        "fieldName": "Project",
+        "fieldDesc": "GCP Project in which the resources are created",
+        "fieldId": "project"
+      }
+    ]
+  },
+  {
+    "CSP": "AWS",
+    "offering": [{
+            "optionName":  "EKS Cluster",
+            "optionValue": "AWS-EKS-Cluster"
+        }
+    ],
+    "fieldsNameVal": [
+      {
+        "fieldName": "Cluster Name",
+        "fieldDesc": "Name of the cluster , Lower case , hyphen allowed",
+        "fieldId": "ClusterName"
+      },
+      {
+        "fieldName": "Region",
+        "fieldDesc": "Select a Region where the EKS cluster needs to be provisioned",
+        "fieldId": "Region"
+      },
+      {
+        "fieldName": "VPCID",
+        "fieldDesc": "Enter the VPC ID of VPC  in which the EKS Cluster has to be provisoned",
+        "fieldId": "VPCID"
+      },
+      {
+        "fieldName": "Public Subnets",
+        "fieldDesc": "Comma Separated List of Public Subnets for Master(Minimum 2 Subnets are required)",
+        "fieldId": "PublicSubnets"
+      },
+      {
+        "fieldName": "Private Subnets",
+        "fieldDesc": "Comma Separated List of Private Subnets for Worker Nodes(Minimum 2 Subnets are required)",
+        "fieldId": "PrivateSubnets"
+      },
+      {
+        "fieldName": "Key Name",
+        "fieldDesc": "Enter a Keypair which will be assigned to Worker Nodes",
+        "fieldId": "KeyName"
+      },
+      {
+        "fieldName": "Node Instance Type",
+        "fieldDesc": "Instance Type of Worker Node",
+        "fieldId": "NodeInstanceType"
+      }
+    ]
+  }
+]
